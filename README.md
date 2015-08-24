@@ -31,7 +31,7 @@ Create a SQLite database to hold the data in the four JSON files in `data/`. Pro
 
 > <img src="static/library_memberinfo.png" width="400" />
 > <img src="static/library_bookinfo.png" width="400" />
-> <img src="static/library_checkedout.png" width="400 />
+> <img src="static/library_checkedout.png" width="400" />
 > <img src="static/library_history.png" width="400" />
 
 #### 3. Library Members
