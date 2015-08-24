@@ -12,7 +12,7 @@ To run the test, open Android Studio's [Build Variants](https://sites.google.com
 
 Your run configuration should look like this:
 
-> ![](static/run.configuration.png).
+> ![](static/run.configuration.png)
 
 
 ### Specs
@@ -27,7 +27,12 @@ Create a Fragment using the provided layout `fragment_pace_calculator.xml`. Impl
 
 #### 2. Library System
 
-Create a SQLite database to hold the data in the four JSON files in `data/` Provide the implementations for the function stubs in `LibraryActivity.java`. When the user provides the parameter in the input box (either a name or an ISBN) and presses a button, call the corresponding function and show the results in the TextView. The format is specified below.
+Create a SQLite database to hold the data in the four JSON files in `data/`. Provide the implementations for the function stubs in `LibraryActivity.java`. When the user provides the parameter in the input box (either a name or an ISBN) and presses a button, call the corresponding function and show the results in the TextView. The format is specified below.
+
+> ![](static/library_memberinfo.png)
+> ![](static/library_bookinfo.png)
+> ![](static/library_checkedout.png)
+> ![](static/library_history.png)
 
 #### 3. Library Members
 

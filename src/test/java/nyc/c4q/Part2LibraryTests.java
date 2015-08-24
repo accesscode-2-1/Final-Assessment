@@ -98,7 +98,7 @@ public class Part2LibraryTests {
             "title: The Tiger's Wife\n" +
             "author: Téa Obreht\n" +
             "checkout date: 8/11/2015\n" +
-            "due date: 8/25/2015" +
+            "due date: 8/25/2015\n" +
             "-----\n" +
             "title: Shadows in Flight (Ender's Shadow, #5)\n" +
             "author: Orson Scott Card\n" +
@@ -122,17 +122,17 @@ public class Part2LibraryTests {
             "title: Rules of Civility\n" +
             "author: Amor Towles\n" +
             "checkout date: 11/7/2013\n" +
-            "return date: 11/19/2013" +
+            "return date: 11/19/2013\n" +
             "-----\n" +
             "title: Harry Potter and the Chamber of Secrets (Harry Potter, #2)\n" +
             "author: J.K. Rowling\n" +
             "checkout date: 11/1/2014\n" +
-            "return date: 11/13/2014" +
+            "return date: 11/13/2014\n" +
             "-----\n" +
             "title: Ender's Shadow (Ender's Shadow, #1)\n" +
             "author: Orson Scott Card\n" +
             "checkout date: 4/9/2015\n" +
-            "return date: 4/20/2015" +
+            "return date: 4/20/2015\n" +
             "-----\n" +
             "title: Influence: The Psychology of Persuasion\n" +
             "author: Robert B. Cialdini\n" +
