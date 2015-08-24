@@ -1,0 +1,902 @@
+[
+    {
+        "id": 1,
+        "title": "The Circle",
+        "author": "Dave Eggers",
+        "isbn": "0385351399",
+        "isbn13": "9780385351393",
+        "publisher": "Knopf",
+        "publishyear": 2013
+    },
+    {
+        "id": 2,
+        "title": "What I Talk About When I Talk About Running",
+        "author": "Haruki Murakami",
+        "isbn": "0307269191",
+        "isbn13": "9780307269195",
+        "publisher": "Knopf",
+        "publishyear": 2008
+    },
+    {
+        "id": 3,
+        "title": "Making Ideas Happen: Overcoming the Obstacles Between Vision and Reality",
+        "author": "Scott Belsky",
+        "isbn": "159184312X",
+        "isbn13": "9781591843122",
+        "publisher": "Portfolio",
+        "publishyear": 2010
+    },
+    {
+        "id": 4,
+        "title": "Cloud Atlas",
+        "author": "David Mitchell",
+        "isbn": "0375507256",
+        "isbn13": "9780375507250",
+        "publisher": "Random House",
+        "publishyear": 2004
+    },
+    {
+        "id": 5,
+        "title": "One More Thing: Stories and Other Stories",
+        "author": "B.J. Novak",
+        "isbn": "0385351836",
+        "isbn13": "9780385351836",
+        "publisher": "Knopf",
+        "publishyear": 2014
+    },
+    {
+        "id": 6,
+        "title": "Yes Please",
+        "author": "Amy Poehler",
+        "isbn": "0062268341",
+        "isbn13": "9780062268341",
+        "publisher": "Dey St.",
+        "publishyear": 2014
+    },
+    {
+        "id": 7,
+        "title": "The 22 Immutable Laws of Marketing: Violate Them at Your Own Risk",
+        "author": "Al Ries",
+        "isbn": "0887306667",
+        "isbn13": "9780887306662",
+        "publisher": "HarperBusiness",
+        "publishyear": 1994
+    },
+    {
+        "id": 8,
+        "title": "The Tipping Point: How Little Things Can Make a Big Difference",
+        "author": "Malcolm Gladwell",
+        "isbn": "0316346624",
+        "isbn13": "9780316346627",
+        "publisher": "Back Bay Books",
+        "publishyear": 2002
+    },
+    {
+        "id": 9,
+        "title": "The Innovator's Dilemma: The Revolutionary Book That Will Change the Way You Do Business",
+        "author": "Clayton M. Christensen",
+        "isbn": "0060521996",
+        "isbn13": "9780060521998",
+        "publisher": "Harper Paperbacks",
+        "publishyear": 2003
+    },
+    {
+        "id": 10,
+        "title": "Good to Great: Why Some Companies Make the Leap... and Others Don't",
+        "author": "James C. Collins",
+        "isbn": "0066620996",
+        "isbn13": "9780066620992",
+        "publisher": "HarperBusiness",
+        "publishyear": 2001
+    },
+    {
+        "id": 11,
+        "title": "Critical Chain",
+        "author": "Eliyahu M. Goldratt",
+        "isbn": "0884271536",
+        "isbn13": "9780884271536",
+        "publisher": "North River Press",
+        "publishyear": 2002
+    },
+    {
+        "id": 12,
+        "title": "The Art of War",
+        "author": "Sun Tzu",
+        "isbn": "1590302257",
+        "isbn13": "9781590302255",
+        "publisher": "Shambhala Publications",
+        "publishyear": 2005
+    },
+    {
+        "id": 13,
+        "title": "Vellum (The Book of All Hours, #1)",
+        "author": "Hal Duncan",
+        "isbn": "0345487311",
+        "isbn13": "9780345487315",
+        "publisher": "Del Rey",
+        "publishyear": 2006
+    },
+    {
+        "id": 14,
+        "title": "Wild: From Lost to Found on the Pacific Crest Trail",
+        "author": "Cheryl Strayed",
+        "isbn": "0307592731",
+        "isbn13": "9780307592736",
+        "publisher": "Knopf",
+        "publishyear": 2012
+    },
+    {
+        "id": 15,
+        "title": "Gödel, Escher, Bach: An Eternal Golden Braid",
+        "author": "Douglas R. Hofstadter",
+        "isbn": "0465026567",
+        "isbn13": "9780465026562",
+        "publisher": "Basic Books",
+        "publishyear": 1999
+    },
+    {
+        "id": 16,
+        "title": "The Martian",
+        "author": "Andy Weir",
+        "isbn": "0804139024",
+        "isbn13": "9780804139021",
+        "publisher": "Crown",
+        "publishyear": 2014
+    },
+    {
+        "id": 17,
+        "title": "Gone Girl",
+        "author": "Gillian Flynn",
+        "isbn": "0297859382",
+        "isbn13": "9780297859383",
+        "publisher": "Weidenfeld & Nicolson",
+        "publishyear": 2012
+    },
+    {
+        "id": 18,
+        "title": "Glasshouse",
+        "author": "Charles Stross",
+        "isbn": "0441014038",
+        "isbn13": "9780441014033",
+        "publisher": "Ace Hardcover",
+        "publishyear": 2006
+    },
+    {
+        "id": 19,
+        "title": "The Way of Kings (The Stormlight Archive, #1)",
+        "author": "Brandon Sanderson",
+        "isbn": "0765326353",
+        "isbn13": "9780765326355",
+        "publisher": "Tor Books",
+        "publishyear": 2010
+    },
+    {
+        "id": 20,
+        "title": "Oryx and Crake (MaddAddam Trilogy, #1)",
+        "author": "Margaret Atwood",
+        "isbn": "0385503857",
+        "isbn13": "9780385503853",
+        "publisher": "Nan A. Talese",
+        "publishyear": 2003
+    },
+    {
+        "id": 21,
+        "title": "Rosencrantz and Guildenstern Are Dead",
+        "author": "Tom Stoppard",
+        "isbn": "0802132758",
+        "isbn13": "9780802132758",
+        "publisher": "Grove Press",
+        "publishyear": 1994
+    },
+    {
+        "id": 22,
+        "title": "Influence: The Psychology of Persuasion",
+        "author": "Robert B. Cialdini",
+        "isbn": "006124189X",
+        "isbn13": "9780061241895",
+        "publisher": "HarperBusiness",
+        "publishyear": 2006
+    },
+    {
+        "id": 23,
+        "title": "The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses",
+        "author": "Eric Ries",
+        "isbn": "0307887898",
+        "isbn13": "9780307887894",
+        "publisher": "Crown Business",
+        "publishyear": 2011
+    },
+    {
+        "id": 24,
+        "title": "Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability",
+        "author": "Steve Krug",
+        "isbn": "0321965515",
+        "isbn13": "9780321965516",
+        "publisher": "New Riders Publishing",
+        "publishyear": 2014
+    },
+    {
+        "id": 25,
+        "title": "Options, Futures and Other Derivatives",
+        "author": "John C. Hull",
+        "isbn": "8120328795",
+        "isbn13": "9788120328792",
+        "publisher": "Prentice Hall India",
+        "publishyear": 2005
+    },
+    {
+        "id": 26,
+        "title": "Crucial Conversations: Tools for Talking When Stakes are High",
+        "author": "Kerry Patterson",
+        "isbn": "0071401946",
+        "isbn13": "0639785375159",
+        "publisher": "McGraw-Hill Contemporary",
+        "publishyear": 2002
+    },
+    {
+        "id": 27,
+        "title": "Eat That Frog!: 21 Great Ways to Stop Procrastinating and Get More Done in Less Time",
+        "author": "Brian Tracy",
+        "isbn": "1576754227",
+        "isbn13": "9781576754221",
+        "publisher": "Berrett-Koehler Publishers",
+        "publishyear": 2007
+    },
+    {
+        "id": 28,
+        "title": "Chaos: Making a New Science",
+        "author": "James Gleick",
+        "isbn": "0140092501",
+        "isbn13": "9780140092509",
+        "publisher": "Penguin Books",
+        "publishyear": 1988
+    },
+    {
+        "id": 29,
+        "title": "Give and Take: A Revolutionary Approach to Success",
+        "author": "Adam M. Grant",
+        "isbn": "0670026557",
+        "isbn13": "9780670026555",
+        "publisher": "Viking",
+        "publishyear": 2013
+    },
+    {
+        "id": 30,
+        "title": "The Perks of Being a Wallflower",
+        "author": "Stephen Chbosky",
+        "isbn": "0671027344",
+        "isbn13": "9780671027346",
+        "publisher": "MTV Books and Pocket Books",
+        "publishyear": 1999
+    },
+    {
+        "id": 31,
+        "title": "Henderson the Rain King",
+        "author": "Saul Bellow",
+        "isbn": "0140189424",
+        "isbn13": "9780140189421",
+        "publisher": "Penguin Classics",
+        "publishyear": 1996
+    },
+    {
+        "id": 32,
+        "title": "The Adventures of Augie March",
+        "author": "Saul Bellow",
+        "isbn": "0143039571",
+        "isbn13": "9780143039570",
+        "publisher": "Penguin Classics",
+        "publishyear": 2006
+    },
+    {
+        "id": 33,
+        "title": "A Random Walk Down Wall Street",
+        "author": "Burton G. Malkiel",
+        "isbn": "0393325350",
+        "isbn13": "9780393325355",
+        "publisher": "W. W. Norton & Company",
+        "publishyear": 2004
+    },
+    {
+        "id": 34,
+        "title": "Tell the Wolves I'm Home",
+        "author": "Carol Rifka Brunt",
+        "isbn": "0679644199",
+        "isbn13": "9780679644194",
+        "publisher": "Random House Publishing Group",
+        "publishyear": 2012
+    },
+    {
+        "id": 35,
+        "title": "The Giver (The Giver Quartet, #1)",
+        "author": "Lois Lowry",
+        "isbn": "054434068X",
+        "isbn13": "9780544340688",
+        "publisher": "Houghton Mifflin Harcourt",
+        "publishyear": 2014
+    },
+    {
+        "id": 36,
+        "title": "Ready Player One",
+        "author": "Ernest Cline",
+        "isbn": "030788743X",
+        "isbn13": "9780307887436",
+        "publisher": "Random House NY",
+        "publishyear": 2011
+    },
+    {
+        "id": 37,
+        "title": "Is Everyone Hanging Out Without Me? (And Other Concerns)",
+        "author": "Mindy Kaling",
+        "isbn": "0307886263",
+        "isbn13": "9780307886262",
+        "publisher": "Crown Archetype",
+        "publishyear": 2011
+    },
+    {
+        "id": 38,
+        "title": "Lean In: Women, Work, and the Will to Lead",
+        "author": "Sheryl Sandberg",
+        "isbn": "0385349947",
+        "isbn13": "9780385349949",
+        "publisher": "Knopf",
+        "publishyear": 2013
+    },
+    {
+        "id": 39,
+        "title": "The Rape of Nanking",
+        "author": "Iris Chang",
+        "isbn": "0140277447",
+        "isbn13": "9780140277449",
+        "publisher": "Penguin Books",
+        "publishyear": 1998
+    },
+    {
+        "id": 40,
+        "title": "Night (The Night Trilogy, #1)",
+        "author": "Elie Wiesel",
+        "isbn": "0374500010",
+        "isbn13": "9780374500016",
+        "publisher": "Hill and Wang",
+        "publishyear": 2006
+    },
+    {
+        "id": 41,
+        "title": "The Name of the Wind (The Kingkiller Chronicle, #1)",
+        "author": "Patrick Rothfuss",
+        "isbn": "075640407X",
+        "isbn13": "9780756404079",
+        "publisher": "Penguin Group DAW Hardcover",
+        "publishyear": 2007
+    },
+    {
+        "id": 42,
+        "title": "The Blade Itself",
+        "author": "Marcus Sakey",
+        "isbn": "0312360312",
+        "isbn13": "9780312360313",
+        "publisher": "Minotaur Books",
+        "publishyear": 2007
+    },
+    {
+        "id": 43,
+        "title": "The Hero of Ages (Mistborn, #3)",
+        "author": "Brandon Sanderson",
+        "isbn": "0765316897",
+        "isbn13": "9780765316899",
+        "publisher": "Tor Books",
+        "publishyear": 2008
+    },
+    {
+        "id": 44,
+        "title": "The Well of Ascension (Mistborn, #2)",
+        "author": "Brandon Sanderson",
+        "isbn": "0765316889",
+        "isbn13": "9780765316882",
+        "publisher": "Tor Books",
+        "publishyear": 2007
+    },
+    {
+        "id": 45,
+        "title": "The Final Empire (Mistborn, #1)",
+        "author": "Brandon Sanderson",
+        "isbn": "076531178X",
+        "isbn13": "9780765311788",
+        "publisher": "Tor Books",
+        "publishyear": 2006
+    },
+    {
+        "id": 46,
+        "title": "Flash Boys: A Wall Street Revolt",
+        "author": "Michael Lewis",
+        "isbn": "0393244660",
+        "isbn13": "9780393244663",
+        "publisher": "W. W. Norton & Company",
+        "publishyear": 2014
+    },
+    {
+        "id": 47,
+        "title": "Never Eat Alone: And Other Secrets to Success, One Relationship at a Time",
+        "author": "Keith Ferrazzi",
+        "isbn": "0385512058",
+        "isbn13": "9780385512053",
+        "publisher": "Crown Business",
+        "publishyear": 2005
+    },
+    {
+        "id": 48,
+        "title": "Allegiant (Divergent, #3)",
+        "author": "Veronica Roth",
+        "isbn": "0007524277",
+        "isbn13": "9780007524273",
+        "publisher": "HarperCollins Children's Book's",
+        "publishyear": 2013
+    },
+    {
+        "id": 49,
+        "title": "Insurgent (Divergent, #2)",
+        "author": "Veronica Roth",
+        "isbn": "0007442912",
+        "isbn13": "9780007442911",
+        "publisher": "HarperCollins Children's Books",
+        "publishyear": 2012
+    },
+    {
+        "id": 50,
+        "title": "Divergent (Divergent, #1)",
+        "author": "Veronica Roth",
+        "isbn": "0062024035",
+        "isbn13": "9780062024039",
+        "publisher": "Katherine Tegen Books",
+        "publishyear": 2012
+    },
+    {
+        "id": 51,
+        "title": "The 80/20 Principle: The Secret to Achieving More with Less",
+        "author": "Richard Koch",
+        "isbn": "0385491743",
+        "isbn13": "9780385491747",
+        "publisher": "Crown Business",
+        "publishyear": 1999
+    },
+    {
+        "id": 52,
+        "title": "Fahrenheit 451",
+        "author": "Ray Bradbury",
+        "isbn": "1451673310",
+        "isbn13": "9781451673319",
+        "publisher": "Simon & Schuster",
+        "publishyear": 2013
+    },
+    {
+        "id": 53,
+        "title": "Mockingjay (The Hunger Games, #3)",
+        "author": "Suzanne Collins",
+        "isbn": "0439023513",
+        "isbn13": "9780439023511",
+        "publisher": "Scholastic Press",
+        "publishyear": 2010
+    },
+    {
+        "id": 54,
+        "title": "The Art of Racing in the Rain",
+        "author": "Garth Stein",
+        "isbn": "1554681723",
+        "isbn13": "9781554681723",
+        "publisher": "Harper Collins",
+        "publishyear": 2008
+    },
+    {
+        "id": 55,
+        "title": "The Last Lecture",
+        "author": "Randy Pausch",
+        "isbn": "1401323251",
+        "isbn13": "9781401323257",
+        "publisher": "Hachette Books",
+        "publishyear": 2008
+    },
+    {
+        "id": 56,
+        "title": "The Five People You Meet in Heaven",
+        "author": "Mitch Albom",
+        "isbn": "1401308589",
+        "isbn13": "9781401308582",
+        "publisher": "Hyperion",
+        "publishyear": 2003
+    },
+    {
+        "id": 57,
+        "title": "The Shadow of the Wind (The Cemetery of Forgotten Books,  #1)",
+        "author": "Carlos Ruiz Zafón",
+        "isbn": "0143034901",
+        "isbn13": "9780143034902",
+        "publisher": "Penguin Books",
+        "publishyear": 2005
+    },
+    {
+        "id": 58,
+        "title": "Catching Fire (The Hunger Games, #2)",
+        "author": "Suzanne Collins",
+        "isbn": "0439023491",
+        "isbn13": "9780439023498",
+        "publisher": "Scholastic Press",
+        "publishyear": 2009
+    },
+    {
+        "id": 59,
+        "title": "The Kite Runner",
+        "author": "Khaled Hosseini",
+        "isbn": "1594480001",
+        "isbn13": "9781594480003",
+        "publisher": "Penguin Berkley Publishing Group Riverhead Books",
+        "publishyear": 2004
+    },
+    {
+        "id": 60,
+        "title": "Ender in Exile (The Ender Quintet, #2)",
+        "author": "Orson Scott Card",
+        "isbn": "0765304961",
+        "isbn13": "9780765304964",
+        "publisher": "Tor Books",
+        "publishyear": 2008
+    },
+    {
+        "id": 61,
+        "title": "A War of Gifts (The Ender Quintet, #1.5)",
+        "author": "Orson Scott Card",
+        "isbn": "0765312824",
+        "isbn13": "9780765312822",
+        "publisher": "Tor Books",
+        "publishyear": 2007
+    },
+    {
+        "id": 62,
+        "title": "Children of the Mind (The Ender Quintet, #5)",
+        "author": "Orson Scott Card",
+        "isbn": "0765304740",
+        "isbn13": "9780765304742",
+        "publisher": "Tor Books",
+        "publishyear": 2002
+    },
+    {
+        "id": 63,
+        "title": "Xenocide (The Ender Quintet, #4,)",
+        "author": "Orson Scott Card",
+        "isbn": "0312861877",
+        "isbn13": "9780312861872",
+        "publisher": "Tor Books",
+        "publishyear": 1996
+    },
+    {
+        "id": 64,
+        "title": "Shadows in Flight (Ender's Shadow, #5)",
+        "author": "Orson Scott Card",
+        "isbn": "0765332000",
+        "isbn13": "9780765332004",
+        "publisher": "Tor Books",
+        "publishyear": 2012
+    },
+    {
+        "id": 65,
+        "title": "Shadow of the Giant (Ender's Shadow, #4)",
+        "author": "Orson Scott Card",
+        "isbn": "1841492051",
+        "isbn13": "9781841492056",
+        "publisher": "",
+        "publishyear": 2005
+    },
+    {
+        "id": 66,
+        "title": "Shadow Puppets (Ender's Shadow, #3)",
+        "author": "Orson Scott Card",
+        "isbn": "0765340054",
+        "isbn13": "9780765340054",
+        "publisher": "Tor Science Fiction",
+        "publishyear": 2003
+    },
+    {
+        "id": 67,
+        "title": "Shadow of the Hegemon (Ender's Shadow, #2)",
+        "author": "Orson Scott Card",
+        "isbn": "0812565959",
+        "isbn13": "9780812565959",
+        "publisher": "Tor Books",
+        "publishyear": 2001
+    },
+    {
+        "id": 68,
+        "title": "Ender's Shadow (Ender's Shadow, #1)",
+        "author": "Orson Scott Card",
+        "isbn": "0765342405",
+        "isbn13": "9780765342409",
+        "publisher": "Starscape",
+        "publishyear": 2002
+    },
+    {
+        "id": 69,
+        "title": "Speaker for the Dead (The Ender Quintet, #3)",
+        "author": "Orson Scott Card",
+        "isbn": "0812550757",
+        "isbn13": "9780812550757",
+        "publisher": "Tor Books",
+        "publishyear": 1994
+    },
+    {
+        "id": 70,
+        "title": "A Storm of Swords (A Song of Ice and Fire, #3)",
+        "author": "George R.R. Martin",
+        "isbn": "055357342X",
+        "isbn13": "9780553573428",
+        "publisher": "Bantam",
+        "publishyear": 2003
+    },
+    {
+        "id": 71,
+        "title": "A Clash of Kings  (A Song of Ice and Fire, #2)",
+        "author": "George R.R. Martin",
+        "isbn": "0553381695",
+        "isbn13": "9780553381696",
+        "publisher": "Bantam",
+        "publishyear": 2002
+    },
+    {
+        "id": 72,
+        "title": "A Feast for Crows (A Song of Ice and Fire, #4)",
+        "author": "George R.R. Martin",
+        "isbn": "055358202X",
+        "isbn13": "9780553582024",
+        "publisher": "Bantam",
+        "publishyear": 2006
+    },
+    {
+        "id": 73,
+        "title": "A Game of Thrones (A Song of Ice and Fire, #1)",
+        "author": "George R.R. Martin",
+        "isbn": "0553588486",
+        "isbn13": "9780553588484",
+        "publisher": "Bantam",
+        "publishyear": 2005
+    },
+    {
+        "id": 74,
+        "title": "Rules of Civility",
+        "author": "Amor Towles",
+        "isbn": "1101517069",
+        "isbn13": "9781101517062",
+        "publisher": "Penguin Books",
+        "publishyear": 2011
+    },
+    {
+        "id": 75,
+        "title": "Life of Pi",
+        "author": "Yann Martel",
+        "isbn": "0770430074",
+        "isbn13": "9780770430078",
+        "publisher": "Seal Books",
+        "publishyear": 2006
+    },
+    {
+        "id": 76,
+        "title": "The Road",
+        "author": "Cormac McCarthy",
+        "isbn": "0307265439",
+        "isbn13": "9780307265432",
+        "publisher": "Knopf",
+        "publishyear": 2006
+    },
+    {
+        "id": 77,
+        "title": "Harry Potter and the Deathly Hallows (Harry Potter, #7)",
+        "author": "J.K. Rowling",
+        "isbn": "0545010225",
+        "isbn13": "9780545010221",
+        "publisher": "Arthur A. Levine Books",
+        "publishyear": 2007
+    },
+    {
+        "id": 78,
+        "title": "Harry Potter and the Half-Blood Prince (Harry Potter, #6)",
+        "author": "J.K. Rowling",
+        "isbn": "0439785960",
+        "isbn13": "9780439785969",
+        "publisher": "Scholastic",
+        "publishyear": 2006
+    },
+    {
+        "id": 79,
+        "title": "Harry Potter and the Order of the Phoenix (Harry Potter, #5)",
+        "author": "J.K. Rowling",
+        "isbn": "0439358078",
+        "isbn13": "9780439358071",
+        "publisher": "Scholastic",
+        "publishyear": 2004
+    },
+    {
+        "id": 80,
+        "title": "Harry Potter and the Goblet of Fire (Harry Potter, #4)",
+        "author": "J.K. Rowling",
+        "isbn": "0439139600",
+        "isbn13": "9780439139601",
+        "publisher": "Scholastic",
+        "publishyear": 2002
+    },
+    {
+        "id": 81,
+        "title": "Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)",
+        "author": "J.K. Rowling",
+        "isbn": "043965548X",
+        "isbn13": "9780439655484",
+        "publisher": "Scholastic",
+        "publishyear": 2004
+    },
+    {
+        "id": 82,
+        "title": "Harry Potter and the Chamber of Secrets (Harry Potter, #2)",
+        "author": "J.K. Rowling",
+        "isbn": "0439064864",
+        "isbn13": "9780439064866",
+        "publisher": "Arthur A. Levine Books",
+        "publishyear": 1999
+    },
+    {
+        "id": 83,
+        "title": "The Girl Who Kicked the Hornet's Nest (Millennium, #3)",
+        "author": "Stieg Larsson",
+        "isbn": "030726999X",
+        "isbn13": "9780307269997",
+        "publisher": "Knopf",
+        "publishyear": 2010
+    },
+    {
+        "id": 84,
+        "title": "The Girl Who Played with Fire (Millennium, #2)",
+        "author": "Stieg Larsson",
+        "isbn": "0307269981",
+        "isbn13": "9780307269980",
+        "publisher": "Alfred A. Knopf",
+        "publishyear": 2009
+    },
+    {
+        "id": 85,
+        "title": "The Amber Spyglass (His Dark Materials, #3)",
+        "author": "Philip Pullman",
+        "isbn": "0440238153",
+        "isbn13": "9780440238157",
+        "publisher": "Laurel Leaf",
+        "publishyear": 2003
+    },
+    {
+        "id": 86,
+        "title": "Ella Enchanted",
+        "author": "Gail Carson Levine",
+        "isbn": "0590920685",
+        "isbn13": "9780590920681",
+        "publisher": "Scholastic Books",
+        "publishyear": 1998
+    },
+    {
+        "id": 87,
+        "title": "The Subtle Knife (His Dark Materials, #2)",
+        "author": "Philip Pullman",
+        "isbn": "0679879250",
+        "isbn13": "9780679879251",
+        "publisher": "Knopf Books for Young Readers",
+        "publishyear": 1997
+    },
+    {
+        "id": 88,
+        "title": "The Golden Compass (His Dark Materials, #1)",
+        "author": "Philip Pullman",
+        "isbn": "0679879242",
+        "isbn13": "9780679879244",
+        "publisher": "Knopf Books for Young Readers",
+        "publishyear": 1996
+    },
+    {
+        "id": 89,
+        "title": "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
+        "author": "J.K. Rowling",
+        "isbn": "0439554934",
+        "isbn13": "9780439554930",
+        "publisher": "Scholastic",
+        "publishyear": 2003
+    },
+    {
+        "id": 90,
+        "title": "Flowers for Algernon",
+        "author": "Daniel Keyes",
+        "isbn": "0156030306",
+        "isbn13": "9780156030304",
+        "publisher": "Mariner Books",
+        "publishyear": 2005
+    },
+    {
+        "id": 91,
+        "title": "The Hitchhiker's Guide to the Galaxy (Hitchhiker's Guide to the Galaxy, #1,)",
+        "author": "Douglas Adams",
+        "isbn": "0345391802",
+        "isbn13": "9780345391803",
+        "publisher": "Del Rey Books",
+        "publishyear": 1995
+    },
+    {
+        "id": 92,
+        "title": "The Hunger Games (The Hunger Games, #1)",
+        "author": "Suzanne Collins",
+        "isbn": "0439023483",
+        "isbn13": "9780439023481",
+        "publisher": "Scholastic Press",
+        "publishyear": 2008
+    },
+    {
+        "id": 93,
+        "title": "Ender's Game (The Ender Quintet, #1)",
+        "author": "Orson Scott Card",
+        "isbn": "0812550706",
+        "isbn13": "9780812550702",
+        "publisher": "Tor Science Fiction",
+        "publishyear": 1994
+    },
+    {
+        "id": 94,
+        "title": "Frankenstein",
+        "author": "Mary Shelley",
+        "isbn": "0141439475",
+        "isbn13": "9780141439471",
+        "publisher": "Penguin Books Ltd",
+        "publishyear": 2003
+    },
+    {
+        "id": 95,
+        "title": "The Tiger's Wife",
+        "author": "Téa Obreht",
+        "isbn": "0385343833",
+        "isbn13": "9780385343831",
+        "publisher": "Random House",
+        "publishyear": 2011
+    },
+    {
+        "id": 96,
+        "title": "Water for Elephants",
+        "author": "Sara Gruen",
+        "isbn": "1565125606",
+        "isbn13": "9781565125605",
+        "publisher": "Algonquin Books",
+        "publishyear": 2007
+    },
+    {
+        "id": 97,
+        "title": "The Curious Incident of the Dog in the Night-Time",
+        "author": "Mark Haddon",
+        "isbn": "1400032717",
+        "isbn13": "9781400032716",
+        "publisher": "Vintage",
+        "publishyear": 2004
+    },
+    {
+        "id": 98,
+        "title": "The Time Traveler's Wife",
+        "author": "Audrey Niffenegger",
+        "isbn": "0965818675",
+        "isbn13": "9780965818674",
+        "publisher": "MacAdam/Cage",
+        "publishyear": 2003
+    },
+    {
+        "id": 99,
+        "title": "The Hobbit (Middle-Earth Universe)",
+        "author": "J.R.R. Tolkien",
+        "isbn": "0618260307",
+        "isbn13": "9780618260300",
+        "publisher": "Houghton Mifflin",
+        "publishyear": 2002
+    },
+    {
+        "id": 100,
+        "title": "The Girl with the Dragon Tattoo (Millennium, #1)",
+        "author": "Stieg Larsson",
+        "isbn": "0307269752",
+        "isbn13": "9780307269751",
+        "publisher": "Knopf",
+        "publishyear": 2008
+    }
+]

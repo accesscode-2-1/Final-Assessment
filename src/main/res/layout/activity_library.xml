@@ -1,0 +1,56 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_pace_calculator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="nyc.c4q.LibraryActivity"
+    >
+
+    <EditText
+        android:id="@+id/input_parameter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_parameter"
+        />
+
+    <Button
+        android:id="@+id/button_getMember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/getMember"
+        android:onClick="button_getMember_onClick"
+        />
+
+    <Button
+        android:id="@+id/button_getBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/getBook"
+        android:onClick="button_getBook_onClick"
+        />
+
+    <Button
+        android:id="@+id/button_getCheckedOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/getCheckedOut"
+        android:onClick="button_getCheckedOut_onClick"
+        />
+
+    <Button
+        android:id="@+id/button_getHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/getHistory"
+        android:onClick="button_getHistory_onClick"
+        />
+
+    <TextView
+        android:id="@+id/text_display"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>

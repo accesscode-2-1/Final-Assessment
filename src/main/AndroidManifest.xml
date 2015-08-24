@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="nyc.c4q"
+    android:versionCode="2"
+    android:versionName="1.0.0-SNAPSHOT" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application android:name=".Unit3AssessmentApplication" >
+        <activity
+            android:name=".Unit3AssessmentActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ListViewActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".NetworkActivity" />
+        <activity android:name=".JSONActivity" />
+        <activity android:name=".NotificationActivity" />
+        <activity
+            android:name=".PaceCalculatorActivity"
+            android:label="@string/title_activity_pace_calculator"
+            android:parentActivityName=".Unit3AssessmentActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nyc.c4q.Unit3AssessmentActivity" />
+        </activity>
+        <activity
+            android:name=".LibraryActivity"
+            android:label="@string/title_activity_library"
+            android:parentActivityName=".Unit3AssessmentActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nyc.c4q.Unit3AssessmentActivity" />
+        </activity>
+        <activity
+            android:name=".MembersActivity"
+            android:label="@string/title_activity_members"
+            android:parentActivityName=".Unit3AssessmentActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="nyc.c4q.Unit3AssessmentActivity" />
+        </activity>
+    </application>
+
+</manifest>

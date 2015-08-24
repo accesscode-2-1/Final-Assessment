@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="title_activity_pace_calculator">Pace Calculator</string>
+    <string name="title_activity_library">Library System</string>
+    <string name="title_activity_members">Library Members</string>
+
+    <string name="label_distance">Distance</string>
+    <string name="label_time">Time</string>
+    <string name="label_pace">Pace</string>
+    <string name="label_id">Member ID:</string>
+    <string name="label_dob">Date of Birth:</string>
+
+    <string name="hint_distance">miles</string>
+    <string name="hint_min">mm</string>
+    <string name="hint_sec">ss</string>
+    <string name="hint_parameter">Parameter</string>
+
+    <string name="calculate">Calculate</string>
+    <string name="getMember">Get Member Info</string>
+    <string name="getBook">Get Book Info</string>
+    <string name="getCheckedOut">Currently Checked Out</string>
+    <string name="getHistory">Checkout History</string>
+
+</resources>

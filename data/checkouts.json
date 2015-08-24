@@ -1,0 +1,72 @@
+[
+    {
+        "memberId": 25,
+        "bookId": 14,
+        "checkoutDate_year": 2015,
+        "checkoutDate_month": 8,
+        "checkoutDate_day": 22,
+        "dueDate_year": 2015,
+        "dueDate_month": 9,
+        "dueDate_day": 5
+    },
+    {
+        "memberId": 25,
+        "bookId": 76,
+        "checkoutDate_year": 2015,
+        "checkoutDate_month": 8,
+        "checkoutDate_day": 22,
+        "dueDate_year": 2015,
+        "dueDate_month": 9,
+        "dueDate_day": 5
+    },
+    {
+        "memberId": 38,
+        "bookId": 89,
+        "checkoutDate_year": 2015,
+        "checkoutDate_month": 7,
+        "checkoutDate_day": 31,
+        "dueDate_year": 2015,
+        "dueDate_month": 8,
+        "dueDate_day": 14
+    },
+    {
+        "memberId": 38,
+        "bookId": 82,
+        "checkoutDate_year": 2015,
+        "checkoutDate_month": 7,
+        "checkoutDate_day": 31,
+        "dueDate_year": 2015,
+        "dueDate_month": 8,
+        "dueDate_day": 14
+    },
+    {
+        "memberId": 38,
+        "bookId": 81,
+        "checkoutDate_year": 2015,
+        "checkoutDate_month": 7,
+        "checkoutDate_day": 31,
+        "dueDate_year": 2015,
+        "dueDate_month": 8,
+        "dueDate_day": 14
+    },
+    {
+        "memberId": 12,
+        "bookId": 64,
+        "checkoutDate_year": 2015,
+        "checkoutDate_month": 8,
+        "checkoutDate_day": 19,
+        "dueDate_year": 2015,
+        "dueDate_month": 9,
+        "dueDate_day": 2
+    },
+    {
+        "memberId": 12,
+        "bookId": 95,
+        "checkoutDate_year": 2015,
+        "checkoutDate_month": 8,
+        "checkoutDate_day": 11,
+        "dueDate_year": 2015,
+        "dueDate_month": 8,
+        "dueDate_day": 25
+    }
+]

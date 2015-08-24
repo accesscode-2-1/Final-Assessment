@@ -1,0 +1,398 @@
+[
+    {
+        "id": 0,
+        "name": "George Washington",
+        "dob_month": 2,
+        "dob_day": 22,
+        "dob_year": 1732,
+        "city": "Pope's Creek",
+        "state": "Virginia"
+    },
+    {
+        "id": 1,
+        "name": "John Adams",
+        "dob_month": 10,
+        "dob_day": 30,
+        "dob_year": 1735,
+        "city": "Braintree",
+        "state": "Massachusetts"
+    },
+    {
+        "id": 2,
+        "name": "Thomas Jefferson",
+        "dob_month": 4,
+        "dob_day": 13,
+        "dob_year": 1743,
+        "city": "Goochland County",
+        "state": "Virginia"
+    },
+    {
+        "id": 3,
+        "name": "James Madison",
+        "dob_month": 3,
+        "dob_day": 16,
+        "dob_year": 1751,
+        "city": "Port Conway",
+        "state": "Virginia"
+    },
+    {
+        "id": 4,
+        "name": "James Monroe",
+        "dob_month": 4,
+        "dob_day": 28,
+        "dob_year": 1758,
+        "city": "Monroe Hall",
+        "state": "Virginia"
+    },
+    {
+        "id": 5,
+        "name": "John Quincy Adams",
+        "dob_month": 7,
+        "dob_day": 11,
+        "dob_year": 1767,
+        "city": "Braintree",
+        "state": "Massachusetts"
+    },
+    {
+        "id": 6,
+        "name": "Andrew Jackson",
+        "dob_month": 3,
+        "dob_day": 15,
+        "dob_year": 1767,
+        "city": "Waxhaws Region",
+        "state": "South/North Carolina"
+    },
+    {
+        "id": 7,
+        "name": "Martin Van Buren",
+        "dob_month": 12,
+        "dob_day": 5,
+        "dob_year": 1782,
+        "city": "Kinderhook",
+        "state": "New York"
+    },
+    {
+        "id": 8,
+        "name": "William Henry Harrison",
+        "dob_month": 2,
+        "dob_day": 9,
+        "dob_year": 1773,
+        "city": "Charles City County",
+        "state": "Virginia"
+    },
+    {
+        "id": 9,
+        "name": "John Tyler",
+        "dob_month": 3,
+        "dob_day": 29,
+        "dob_year": 1790,
+        "city": "Charles City County",
+        "state": "Virginia"
+    },
+    {
+        "id": 10,
+        "name": "James K. Polk",
+        "dob_month": 11,
+        "dob_day": 2,
+        "dob_year": 1795,
+        "city": "Pineville",
+        "state": "North Carolina"
+    },
+    {
+        "id": 11,
+        "name": "Zachary Taylor",
+        "dob_month": 11,
+        "dob_day": 24,
+        "dob_year": 1784,
+        "city": "Barboursville",
+        "state": "Virginia"
+    },
+    {
+        "id": 12,
+        "name": "Millard Fillmore",
+        "dob_month": 1,
+        "dob_day": 7,
+        "dob_year": 1800,
+        "city": "Moravia",
+        "state": "New York"
+    },
+    {
+        "id": 13,
+        "name": "Franklin Pierce",
+        "dob_month": 11,
+        "dob_day": 23,
+        "dob_year": 1804,
+        "city": "Hillsborough",
+        "state": "New Hampshire"
+    },
+    {
+        "id": 14,
+        "name": "James Buchanan",
+        "dob_month": 4,
+        "dob_day": 23,
+        "dob_year": 1791,
+        "city": "Cove Gap",
+        "state": "Pennsylvania"
+    },
+    {
+        "id": 15,
+        "name": "Abraham Lincoln",
+        "dob_month": 2,
+        "dob_day": 12,
+        "dob_year": 1809,
+        "city": "Hardin County",
+        "state": "Kentucky"
+    },
+    {
+        "id": 16,
+        "name": "Andrew Johnson",
+        "dob_month": 12,
+        "dob_day": 29,
+        "dob_year": 1808,
+        "city": "Raleigh",
+        "state": "North Carolina"
+    },
+    {
+        "id": 17,
+        "name": "Ulysses S. Grant",
+        "dob_month": 4,
+        "dob_day": 27,
+        "dob_year": 1822,
+        "city": "Point Pleasant",
+        "state": "Ohio"
+    },
+    {
+        "id": 18,
+        "name": "Rutherford B. Hayes",
+        "dob_month": 10,
+        "dob_day": 4,
+        "dob_year": 1822,
+        "city": "Delaware",
+        "state": "Ohio"
+    },
+    {
+        "id": 19,
+        "name": "James A. Garfield",
+        "dob_month": 11,
+        "dob_day": 19,
+        "dob_year": 1831,
+        "city": "Moreland Hills",
+        "state": "Ohio"
+    },
+    {
+        "id": 20,
+        "name": "Chester A. Arthur",
+        "dob_month": 10,
+        "dob_day": 5,
+        "dob_year": 1829,
+        "city": "Fairfield",
+        "state": "Vermont"
+    },
+    {
+        "id": 21,
+        "name": "Grover Cleveland",
+        "dob_month": 3,
+        "dob_day": 18,
+        "dob_year": 1837,
+        "city": "Caldwell",
+        "state": "New Jersey"
+    },
+    {
+        "id": 22,
+        "name": "Benjamin Harrison",
+        "dob_month": 8,
+        "dob_day": 20,
+        "dob_year": 1833,
+        "city": "North Bend",
+        "state": "Ohio"
+    },
+    {
+        "id": 23,
+        "name": "Grover Cleveland",
+        "dob_month": 3,
+        "dob_day": 18,
+        "dob_year": 1837,
+        "city": "Caldwell",
+        "state": "New Jersey"
+    },
+    {
+        "id": 24,
+        "name": "William McKinley",
+        "dob_month": 1,
+        "dob_day": 29,
+        "dob_year": 1843,
+        "city": "Niles",
+        "state": "Ohio"
+    },
+    {
+        "id": 25,
+        "name": "Theodore Roosevelt",
+        "dob_month": 10,
+        "dob_day": 27,
+        "dob_year": 1858,
+        "city": "New York City",
+        "state": "New York"
+    },
+    {
+        "id": 26,
+        "name": "William Howard Taft",
+        "dob_month": 9,
+        "dob_day": 15,
+        "dob_year": 1857,
+        "city": "Cincinnati",
+        "state": "Ohio"
+    },
+    {
+        "id": 27,
+        "name": "Woodrow Wilson",
+        "dob_month": 12,
+        "dob_day": 28,
+        "dob_year": 1856,
+        "city": "Staunton",
+        "state": "Virginia"
+    },
+    {
+        "id": 28,
+        "name": "Warren G. Harding",
+        "dob_month": 11,
+        "dob_day": 2,
+        "dob_year": 1865,
+        "city": "Blooming Grove",
+        "state": "Ohio"
+    },
+    {
+        "id": 29,
+        "name": "Calvin Coolidge",
+        "dob_month": 7,
+        "dob_day": 4,
+        "dob_year": 1872,
+        "city": "Plymouth",
+        "state": "Vermont"
+    },
+    {
+        "id": 30,
+        "name": "Herbert Hoover",
+        "dob_month": 8,
+        "dob_day": 10,
+        "dob_year": 1874,
+        "city": "West Branch",
+        "state": "Iowa"
+    },
+    {
+        "id": 31,
+        "name": "Franklin D. Roosevelt",
+        "dob_month": 1,
+        "dob_day": 30,
+        "dob_year": 1882,
+        "city": "Hyde Park",
+        "state": "New York"
+    },
+    {
+        "id": 32,
+        "name": "Harry S. Truman",
+        "dob_month": 5,
+        "dob_day": 8,
+        "dob_year": 1884,
+        "city": "Lamar",
+        "state": "Missouri"
+    },
+    {
+        "id": 33,
+        "name": "Dwight D. Eisenhower",
+        "dob_month": 10,
+        "dob_day": 14,
+        "dob_year": 1890,
+        "city": "Denison",
+        "state": "Texas"
+    },
+    {
+        "id": 34,
+        "name": "John F. Kennedy",
+        "dob_month": 5,
+        "dob_day": 29,
+        "dob_year": 1917,
+        "city": "Brookline",
+        "state": "Massachusetts"
+    },
+    {
+        "id": 35,
+        "name": "Lyndon B. Johnson",
+        "dob_month": 8,
+        "dob_day": 27,
+        "dob_year": 1908,
+        "city": "Stonewall",
+        "state": "Texas"
+    },
+    {
+        "id": 36,
+        "name": "Richard Nixon",
+        "dob_month": 1,
+        "dob_day": 9,
+        "dob_year": 1913,
+        "city": "Yorba Linda",
+        "state": "California"
+    },
+    {
+        "id": 37,
+        "name": "Gerald Ford",
+        "dob_month": 7,
+        "dob_day": 14,
+        "dob_year": 1913,
+        "city": "Omaha",
+        "state": "Nebraska"
+    },
+    {
+        "id": 38,
+        "name": "Jimmy Carter",
+        "dob_month": 10,
+        "dob_day": 1,
+        "dob_year": 1924,
+        "city": "Plains",
+        "state": "Georgia"
+    },
+    {
+        "id": 39,
+        "name": "Ronald Reagan",
+        "dob_month": 2,
+        "dob_day": 6,
+        "dob_year": 1911,
+        "city": "Tampico",
+        "state": "Illinois"
+    },
+    {
+        "id": 40,
+        "name": "George H. W. Bush",
+        "dob_month": 6,
+        "dob_day": 12,
+        "dob_year": 1924,
+        "city": "Milton",
+        "state": "Massachusetts"
+    },
+    {
+        "id": 41,
+        "name": "Bill Clinton",
+        "dob_month": 8,
+        "dob_day": 19,
+        "dob_year": 1946,
+        "city": "Hope",
+        "state": "Arkansas"
+    },
+    {
+        "id": 42,
+        "name": "George W. Bush",
+        "dob_month": 7,
+        "dob_day": 6,
+        "dob_year": 1946,
+        "city": "New Haven",
+        "state": "Connecticut"
+    },
+    {
+        "id": 43,
+        "name": "Barack Obama",
+        "dob_month": 8,
+        "dob_day": 4,
+        "dob_year": 1961,
+        "city": "Honolulu",
+        "state": "Hawaii"
+    }
+]
