@@ -39,14 +39,6 @@
         android:onClick="button_getCheckedOut_onClick"
         />
 
-    <Button
-        android:id="@+id/button_getHistory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/getHistory"
-        android:onClick="button_getHistory_onClick"
-        />
-
     <TextView
         android:id="@+id/text_display"
         android:layout_width="match_parent"

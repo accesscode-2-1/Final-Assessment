@@ -53,12 +53,4 @@ public class LibraryActivity extends Activity {
         //      earliest due first.
     }
 
-    public void button_getHistory_onClick(View view) {
-        String name = inputParameter.getText().toString();
-
-        // TODO Display a list of books that the member with the given name
-        //      has ever checked out, ordered by date, with the earliest
-        //      book first. You do not need to display books that are currently
-        //      checked out.
-    }
 }

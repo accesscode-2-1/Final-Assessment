@@ -31,7 +31,6 @@ public class Part2LibraryTests {
     private Button buttonMemberInfo;
     private Button buttonBookInfo;
     private Button buttonCheckedOut;
-    private Button buttonHistory;
 
     @Before
     public void setUp() {
@@ -43,7 +42,6 @@ public class Part2LibraryTests {
         buttonMemberInfo = (Button) Helpers.findViewByIdString(activity, "button_getMember");
         buttonBookInfo   = (Button) Helpers.findViewByIdString(activity, "button_getBook");
         buttonCheckedOut = (Button) Helpers.findViewByIdString(activity, "button_getCheckedOut");
-        buttonHistory    = (Button) Helpers.findViewByIdString(activity, "button_getHistory");
     }
 
     @Test
@@ -108,41 +106,7 @@ public class Part2LibraryTests {
     }
 
     @Test
-    public void test09CheckHistoryQuery() {
-        assertThat(input, notNullValue());
-        assertThat(display, notNullValue());
-        assertThat(buttonHistory, notNullValue());
-
-        input.setText("Benjamin Harrison");
-        buttonHistory.callOnClick();
-
-        Assertions.assertThat(display).containsText(
-            "name: Benjamin Harrison\n" +
-            "-----\n" +
-            "title: Rules of Civility\n" +
-            "author: Amor Towles\n" +
-            "checkout date: 11/7/2013\n" +
-            "return date: 11/19/2013\n" +
-            "-----\n" +
-            "title: Harry Potter and the Chamber of Secrets (Harry Potter, #2)\n" +
-            "author: J.K. Rowling\n" +
-            "checkout date: 11/1/2014\n" +
-            "return date: 11/13/2014\n" +
-            "-----\n" +
-            "title: Ender's Shadow (Ender's Shadow, #1)\n" +
-            "author: Orson Scott Card\n" +
-            "checkout date: 4/9/2015\n" +
-            "return date: 4/20/2015\n" +
-            "-----\n" +
-            "title: Influence: The Psychology of Persuasion\n" +
-            "author: Robert B. Cialdini\n" +
-            "checkout date: 6/18/2015\n" +
-            "return date: 7/3/2015"
-        );
-    }
-
-    @Test
-    public void test10CheckCheckoutFunctionality() {
+    public void test09CheckCheckoutFunctionality() {
         activity.checkOut(43, 17);
 
         assertThat(input, notNullValue());
@@ -169,45 +133,18 @@ public class Part2LibraryTests {
     }
 
     @Test
-    public void test11CheckCheckinFunctionality() {
+    public void test10CheckCheckinFunctionality() {
         activity.checkIn(43, 17);
 
         assertThat(input, notNullValue());
         assertThat(display, notNullValue());
         assertThat(buttonCheckedOut, notNullValue());
-        assertThat(buttonHistory, notNullValue());
 
         input.setText("Barack Obama");
         buttonCheckedOut.callOnClick();
 
         Assertions.assertThat(display).containsText(
             "name: Barack Obama"
-        );
-
-        input.setText("Barack Obama");
-        buttonHistory.callOnClick();
-
-        SimpleDateFormat format = new SimpleDateFormat("M/d/y");
-        Calendar calendar = Calendar.getInstance();
-        String today = format.format(calendar.getTime());
-
-        Assertions.assertThat(display).containsText(
-            "name: Barack Obama\n" +
-            "-----\n" +
-            "title: The Circle\n" +
-            "author: Dave Eggers\n" +
-            "checkout date: 1/16/2014\n" +
-            "return date: 1/27/2014" +
-            "-----\n" +
-            "title: The Perks of Being a Wallflower\n" +
-            "author: Steven Chbosky\n" +
-            "checkout date: 3/14/2015\n" +
-            "return date: 3/23/2015" +
-            "-----\n" +
-            "title: Gone Girl\n" +
-            "author: Gillian Flynn\n" +
-            "checkout date: " + today + "\n" +
-            "return date: " + today
         );
     }
 
