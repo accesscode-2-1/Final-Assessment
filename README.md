@@ -27,14 +27,13 @@ Create a Fragment using the provided layout `fragment_pace_calculator.xml`. Impl
 
 #### 2. Library System
 
-* Create a SQLite database to hold the data in the four JSON files in `data/`.
+* Create a SQLite database to hold the data in the two JSON files in `data/`. (Hint: look at book id 14 for a list of all the fields for a book.)
 * Provide the implementations for the function stubs in `LibraryActivity.java`.
 * When the user provides the parameter in the input box (either a name or an ISBN) and presses a button, call the corresponding function and show the results in the TextView. The format is specified below.
 
 > <img src="static/library_memberinfo.png" width="400" />
 > <img src="static/library_bookinfo.png" width="400" />
 > <img src="static/library_checkedout.png" width="400" />
-> <img src="static/library_history.png" width="400" />
 
 #### 3. Library Members
 

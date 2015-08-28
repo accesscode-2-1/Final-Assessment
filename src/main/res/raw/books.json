@@ -123,7 +123,15 @@
         "isbn": "0307592731",
         "isbn13": "9780307592736",
         "publisher": "Knopf",
-        "publishyear": 2012
+        "publishyear": 2012,
+        "checkedout": true,
+        "checkedoutby": 25,
+        "checkoutdateyear": 2015,
+        "checkoutdatemonth": 8,
+        "checkoutdateday": 22,
+        "duedateyear": 2015,
+        "duedatemonth": 9,
+        "duedateday": 5
     },
     {
         "id": 15,
@@ -573,7 +581,15 @@
         "isbn": "0765332000",
         "isbn13": "9780765332004",
         "publisher": "Tor Books",
-        "publishyear": 2012
+        "publishyear": 2012,
+        "checkedout": true,
+        "checkedoutby": 12,
+        "checkoutdateyear": 2015,
+        "checkoutdatemonth": 8,
+        "checkoutdateday": 19,
+        "duedateyear": 2015,
+        "duedatemonth": 9,
+        "duedateday": 2
     },
     {
         "id": 65,
@@ -681,7 +697,15 @@
         "isbn": "0307265439",
         "isbn13": "9780307265432",
         "publisher": "Knopf",
-        "publishyear": 2006
+        "publishyear": 2006,
+        "checkedout": true,
+        "checkedoutby": 25,
+        "checkoutdateyear": 2015,
+        "checkoutdatemonth": 8,
+        "checkoutdateday": 22,
+        "duedateyear": 2015,
+        "duedatemonth": 9,
+        "duedateday": 5
     },
     {
         "id": 77,
@@ -726,7 +750,15 @@
         "isbn": "043965548X",
         "isbn13": "9780439655484",
         "publisher": "Scholastic",
-        "publishyear": 2004
+        "publishyear": 2004,
+        "checkedout": true,
+        "checkedoutby": 38,
+        "checkoutdateyear": 2015,
+        "checkoutdatemonth": 7,
+        "checkoutdateday": 31,
+        "duedateyear": 2015,
+        "duedatemonth": 8,
+        "duedateday": 14
     },
     {
         "id": 82,
@@ -735,7 +767,15 @@
         "isbn": "0439064864",
         "isbn13": "9780439064866",
         "publisher": "Arthur A. Levine Books",
-        "publishyear": 1999
+        "publishyear": 1999,
+        "checkedout": true,
+        "checkedoutby": 38,
+        "checkoutdateyear": 2015,
+        "checkoutdatemonth": 7,
+        "checkoutdateday": 31,
+        "duedateyear": 2015,
+        "duedatemonth": 8,
+        "duedateday": 14
     },
     {
         "id": 83,
@@ -798,7 +838,15 @@
         "isbn": "0439554934",
         "isbn13": "9780439554930",
         "publisher": "Scholastic",
-        "publishyear": 2003
+        "publishyear": 2003.
+        "checkedout": true,
+        "checkedoutby": 38,
+        "checkoutdateyear": 2015,
+        "checkoutdatemonth": 7,
+        "checkoutdateday": 31,
+        "duedateyear": 2015,
+        "duedatemonth": 8,
+        "duedateday": 14
     },
     {
         "id": 90,
@@ -852,7 +900,15 @@
         "isbn": "0385343833",
         "isbn13": "9780385343831",
         "publisher": "Random House",
-        "publishyear": 2011
+        "publishyear": 2011,
+        "checkedout": true,
+        "checkedoutby": 12,
+        "checkoutdateyear": 2015,
+        "checkoutdatemonth": 8,
+        "checkoutdateday": 11,
+        "duedateyear": 2015,
+        "duedatemonth": 8,
+        "duedateday": 25
     },
     {
         "id": 96,

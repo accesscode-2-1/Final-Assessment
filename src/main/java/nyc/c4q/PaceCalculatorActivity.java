@@ -1,9 +1,9 @@
 package nyc.c4q;
 
-import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-public class PaceCalculatorActivity extends Activity {
+public class PaceCalculatorActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

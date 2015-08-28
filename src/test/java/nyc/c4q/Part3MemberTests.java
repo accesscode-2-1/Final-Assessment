@@ -1,6 +1,7 @@
 package nyc.c4q;
 
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -28,23 +29,46 @@ public class Part3MemberTests {
     private MembersActivity activity;
     private ListView list;
     private Adapter adapter;
+    private Button buttonName;
+    private Button buttonColor;
 
     @Before
     public void setUp() {
         activity = Robolectric.buildActivity(MembersActivity.class).setup().get();
+        
         list = (ListView) Helpers.findViewByIdString(activity, "list");
         adapter = list.getAdapter();
+        assertThat(adapter, notNullValue());
+
+        buttonName  = (Button) Helpers.findViewByIdString(activity, "button_name");
+        buttonColor = (Button) Helpers.findViewByIdString(activity, "button_color");
     }
 
     @Test
-    public void test12CheckUsingCursorAdapter() {
-        assertThat(adapter, notNullValue());
-        assertThat(adapter, instanceOf(CursorAdapter.class));
+    public void test11CheckListCount() {
+        assertThat(adapter.getCount(), equalTo(28));
     }
 
     @Test
-    public void test13CheckListCount() {
-        assertThat(adapter, notNullValue());
-        assertThat(adapter.getCount(), equalTo(44));
+    public void test12CheckOrderLastFirst() {
+        assertThat(buttonName.getText(), equalTo("Last, First"));
+        
+        assertThat(0,  equalTo("Abbott, Hannah"));
+        assertThat(5,  equalTo("Chang, Cho"));
+        assertThat(12, equalTo("Granger, Hermione"));
+        assertThat(16, equalTo("Lovegood, Luna"));
+        assertThat(26, equalTo("Weasley, Ginny"));
+    }
+
+    @Test
+    public void test13CheckOrderFirstLast() {
+        buttonName.callOnClick();
+        assertThat(buttonName.getText(), equalTo("First Last"));
+        
+        assertThat(0,  equalTo("Alicia Spinnet"));
+        assertThat(9,  equalTo("Ginny Weasley"));
+        assertThat(14,  equalTo("Katie Bell"));
+        assertThat(21,  equalTo("Padma Patil"));
+        assertThat(25,  equalTo("Susan Bones"));
     }
 }
