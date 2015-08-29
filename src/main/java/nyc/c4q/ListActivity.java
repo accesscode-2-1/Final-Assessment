@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 
-public class MembersActivity extends Activity {
+public class ListActivity extends Activity {
 
     public ListView list;
 

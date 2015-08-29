@@ -38,7 +38,7 @@ public class Unit3AssessmentActivity extends Activity {
         buttonMembers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Unit3AssessmentActivity.this, MembersActivity.class);
+                Intent intent = new Intent(Unit3AssessmentActivity.this, ListActivity.class);
                 Unit3AssessmentActivity.this.startActivity(intent);
             }
         });

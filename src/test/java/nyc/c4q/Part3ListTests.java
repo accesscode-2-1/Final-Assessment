@@ -2,8 +2,6 @@ package nyc.c4q;
 
 import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.CursorAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import org.junit.Before;
@@ -15,7 +13,6 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
-import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -24,9 +21,9 @@ import static org.hamcrest.Matchers.notNullValue;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
-public class Part3MemberTests {
+public class Part3ListTests {
 
-    private MembersActivity activity;
+    private ListActivity activity;
     private ListView list;
     private Adapter adapter;
     private Button buttonName;
@@ -34,7 +31,7 @@ public class Part3MemberTests {
 
     @Before
     public void setUp() {
-        activity = Robolectric.buildActivity(MembersActivity.class).setup().get();
+        activity = Robolectric.buildActivity(ListActivity.class).setup().get();
         
         list = (ListView) Helpers.findViewByIdString(activity, "list");
         adapter = list.getAdapter();

@@ -39,7 +39,7 @@
                 android:value="nyc.c4q.Unit3AssessmentActivity" />
         </activity>
         <activity
-            android:name=".MembersActivity"
+            android:name=".ListActivity"
             android:label="@string/title_activity_members"
             android:parentActivityName=".Unit3AssessmentActivity" >
             <meta-data
