@@ -52,6 +52,7 @@ dependencies {
     // better version of Java's HttpURLConnection
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.j256.ormlite:ormlite-android:4.48'
 
     // TODO: requires special build of robolectric right now. working on this...
     testCompile('org.robolectric:robolectric:2.4') {

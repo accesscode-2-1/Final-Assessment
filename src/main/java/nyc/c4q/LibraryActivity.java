@@ -1,14 +1,21 @@
 package nyc.c4q;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.google.gson.JsonArray;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class LibraryActivity extends Activity {
 
     public EditText inputParameter;
+    private DatabaseHelper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +23,38 @@ public class LibraryActivity extends Activity {
         setContentView(R.layout.activity_library);
 
         inputParameter = (EditText) findViewById(R.id.input_parameter);
+    }
+
+    private class MyDatabaseTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            mHelper = DatabaseHelper.getInstance(getApplicationContext());
+            if (mHelper.fetchAllBooks() == null) {
+                JsonArray bookArray = new JsonArray();
+                for (int i =0; i<bookArray.size();i++){
+                    JSONObject jsonObject = bookArray.getJsonObject(i);
+                    try {
+                        String title = jsonObject.getString("title");
+                        String author = jsonObject.getString("author");
+                        long isbn = jsonObject.getLong("isbn");
+                        long isbn13 = jsonObject.getLong("isbn13");
+                        String publisher = jsonObject.getString("publisher");
+                        int publishyear = jsonObject.getInt("publishyear");
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
     }
 
     public void checkOut(int memberId, int bookId) {
