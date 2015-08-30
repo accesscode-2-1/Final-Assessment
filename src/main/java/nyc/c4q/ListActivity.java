@@ -2,14 +2,20 @@ package nyc.c4q;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.Arrays;
 
 
 public class ListActivity extends Activity {
 
     public ListView list;
+    ListActivityAdapter adapter;
+
+    Button nameBtn;
+    Button colorBtn;
 
     public static final Person[] PEOPLE = {
         new Person("Hannah",    "Abbott",          House.Hufflepuff),
@@ -42,12 +48,29 @@ public class ListActivity extends Activity {
         new Person("Ron",       "Weasley",         House.Gryffindor)
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        sortAlphabetically(PEOPLE);
+
+        adapter = new ListActivityAdapter(this, R.layout.listitem_member, PEOPLE);
         list = (ListView) findViewById(R.id.list);
+        list.setAdapter(adapter);
+    }
+
+    public static void sortAlphabetically (Person [] people ){
+
+        Arrays.sort(people);
+        for(int i = 0; i < people.length; i++){
+
+            String log = "First Name: " + people[i].firstName + "Last Name: " + people[i].lastName + "House: " + people[i].house;
+
+            Log.d("APLHA ORDER PPL: ", log );
+        }
+
     }
 
 }
