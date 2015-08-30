@@ -5,11 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="nyc.c4q.PaceCalculatorActivity">
-    <!--I thnk here should add fragment_pace_calculator.xml, which is a LinearLayout-->
-    <!--in here, but I don't know how to do it. -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+
 
     </FrameLayout>
 
