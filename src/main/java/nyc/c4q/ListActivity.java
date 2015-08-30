@@ -11,7 +11,7 @@ public class ListActivity extends Activity {
 
     public ListView list;
 
-    public static final String[] PEOPLE = {
+    public static final Person[] PEOPLE = {
         new Person("Hannah",    "Abbott",          House.Hufflepuff),
         new Person("Katie",     "Bell",            House.Gryffindor),
         new Person("Susan",     "Bones",           House.Hufflepuff),
@@ -37,7 +37,7 @@ public class ListActivity extends Activity {
         new Person("Alicia",    "Spinnet",         House.Gryffindor),
         new Person("Dean",      "Thomas",          House.Gryffindor),
         new Person("Fred",      "Weasley",         House.Gryffindor),
-        new Person("George",    "Weasley",         House.Gryffindor).
+        new Person("George",    "Weasley",         House.Gryffindor),
         new Person("Ginny",     "Weasley",         House.Gryffindor),
         new Person("Ron",       "Weasley",         House.Gryffindor)
     };
@@ -45,7 +45,7 @@ public class ListActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_members);
+        setContentView(R.layout.activity_list);
 
         list = (ListView) findViewById(R.id.list);
     }

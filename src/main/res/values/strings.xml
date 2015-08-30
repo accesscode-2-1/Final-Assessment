@@ -19,5 +19,9 @@
     <string name="getMember">Get Member Info</string>
     <string name="getBook">Get Book Info</string>
     <string name="getCheckedOut">Currently Checked Out</string>
+    <string name="last_first">Last, First</string>
+    <string name="first_last">First Last</string>
+    <string name="show_color">Show Color</string>
+    <string name="hide_color">Hide Color</string>
 
 </resources>

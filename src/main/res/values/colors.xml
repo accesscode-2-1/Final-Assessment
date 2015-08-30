@@ -1,0 +1,8 @@
+<resources>
+
+    <color name="gryffindor_red">#990000</color>
+    <color name="ravenclaw_blue">#000066</color>
+    <color name="hufflepuff_yellow">#FFCC00</color>
+    <color name="slytherin_green">#003300</color>
+
+</resources>

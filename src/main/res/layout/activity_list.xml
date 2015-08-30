@@ -10,10 +10,29 @@
     tools:context="nyc.c4q.ListActivity"
     >
 
+    <Button
+        android:id="@+id/button_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/last_first"
+        />
+
+    <Button
+        android:id="@+id/button_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@id/button_name"
+        android:text="@string/show_color"
+        />
+
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/button_name"
     />
 
 </RelativeLayout>
