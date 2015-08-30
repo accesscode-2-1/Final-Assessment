@@ -96,6 +96,7 @@ public class ListActivity extends Activity implements View.OnClickListener {
             TextView tvHouse = (TextView) convertView.findViewById(R.id.text_house);
 
             // Populate data into view using data object
+            tvName.setText(person.getFirstName() + " " + person.getLastName());
             tvHouse.setText(person.getHouse().name());
 
             // Set row background color

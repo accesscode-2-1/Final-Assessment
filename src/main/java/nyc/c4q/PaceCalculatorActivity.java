@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -67,15 +68,18 @@ public class PaceCalculatorActivity extends FragmentActivity {
     private double calculate(String distanceStr, String timeStr, String paceStr) {
         double answer = 0;
 
-        // if distance + time
-//        if ((!distanceStr.isEmpty()) && (!timeStr.isEmpty()) {
-//            // calc
-//        }
+        // if distance + time, time + pace, or pace + distance
+        if ((!distanceStr.isEmpty()) && (!timeStr.isEmpty())) {
+            answer = inputDistance / Integer.parseInt(timeStr);
+        } else if ((!timeStr.isEmpty()) && (!paceStr.isEmpty())) {
+            answer = Integer.parseInt(timeStr) * Integer.parseInt(paceStr);
+        } else if ((!distanceStr.isEmpty()) && (!paceStr.isEmpty())) {
+            answer = inputDistance / Integer.parseInt(paceStr);
+        } else {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT);
+        }
 
-        // if time + pace
-
-        // if pace + distance
-
+        // return, plug in to third field
         return answer;
 
     }
