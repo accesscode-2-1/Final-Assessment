@@ -28,7 +28,7 @@ import static org.hamcrest.Matchers.notNullValue;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
-public class Part3ListTests {
+public class Part2ListTests {
 
     private ListActivity activity;
     private ListView list;
@@ -49,12 +49,12 @@ public class Part3ListTests {
     }
 
     @Test
-    public void test11CheckListCount() {
+    public void test06CheckListCount() {
         assertThat(adapter.getCount(), equalTo(28));
     }
 
     @Test
-    public void test12CheckOrderLastFirst() {
+    public void test07CheckOrderLastFirst() {
         assertThat(buttonName.getText().toString(), equalTo("Last, First"));
 
         TextView textName  = (TextView) Helpers.findViewInList(activity, list, 0, "text_name");
@@ -84,7 +84,7 @@ public class Part3ListTests {
     }
 
     @Test
-    public void test13CheckOrderFirstLast() {
+    public void test08CheckOrderFirstLast() {
         buttonName.callOnClick();
         assertThat(buttonName.getText().toString(), equalTo("First Last"));
 
@@ -116,7 +116,7 @@ public class Part3ListTests {
 
     /*
     @Test
-    public void test14CheckColorHidden() {
+    public void test09CheckColorHidden() {
         assertThat(buttonColor.getText().toString(), equalTo("Show Color"));
 
         View view = Helpers.getViewInList(list, 0);
@@ -127,7 +127,7 @@ public class Part3ListTests {
     */
 
     @Test
-    public void test15CheckColorShown() {
+    public void test10CheckColorShown() {
         buttonColor.callOnClick();
         assertThat(buttonColor.getText().toString(), equalTo("Hide Color"));
 

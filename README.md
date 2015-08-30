@@ -25,7 +25,16 @@ Create a Fragment using the provided layout `fragment_pace_calculator.xml`. Impl
 * If the user specifies data for zero, one, or all of the variables, do nothing.
 * If the user specifies invalid data for any of the variables, do nothing.
 
-#### 2. Library System
+#### 2. Roster
+
+Create a list of students using a custom list adapter and the list of students provided in `ListActivity.java`. Each list item should use the provided layout `listitem_member.xml`. Implement the following functionality:
+
+* The list should be sorted alphabetically.
+* The upper right button toggles between "Last, First" and "First Last" (e.g. "Ravenclaw, Rowena" and "Rowena Ravenclaw"). The sort should reflect the current name display, meaning it should be sorted by last name in "Last, First" mode and by first name in "First Last" mode.
+* The left button toggles the background color for each list item. When colors are shown, the background color should be the color specified for the student's house in `colors.xml`.
+* Each of these should be stored as a preference, so that they are saved between runs of the app.
+
+#### 3. Library System
 
 * Create a SQLite database to hold the data in the two JSON files in `data/`. (Hint: look at book id 14 for a list of all the fields for a book.)
 * Provide the implementations for the function stubs in `LibraryActivity.java`.
@@ -34,19 +43,3 @@ Create a Fragment using the provided layout `fragment_pace_calculator.xml`. Impl
 > <img src="static/library_memberinfo.png" width="400" />
 > <img src="static/library_bookinfo.png" width="400" />
 > <img src="static/library_checkedout.png" width="400" />
-
-#### 3. Library Members
-
-Using the same SQLite database from problem 2 and the provided layout `listitem_member.xml`, show a list of all members of the library. For members who have overdue books, show their name in red (#AA0000).
-
-##### Bonus
-
-Provide persistent options to show the list:
-
-* With the name formatted "First Last" or "Last, First"
-* Sorted by ID, first name, or last name
-
-
-### Grading
-
-When you are done, go outside and talk to a TA. Even if no tests are passed, the TA can make judgements about your code and determine if you understand this material well enough to move on.

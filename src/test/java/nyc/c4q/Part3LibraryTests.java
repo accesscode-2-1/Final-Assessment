@@ -23,7 +23,7 @@ import static org.hamcrest.Matchers.notNullValue;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = "src/main/AndroidManifest.xml", emulateSdk = 18)
-public class Part2LibraryTests {
+public class Part3LibraryTests {
 
     private LibraryActivity activity;
     private EditText input;
@@ -45,7 +45,7 @@ public class Part2LibraryTests {
     }
 
     @Test
-    public void test06CheckMemberInfoQuery() {
+    public void test11CheckMemberInfoQuery() {
         assertThat(input, notNullValue());
         assertThat(display, notNullValue());
         assertThat(buttonMemberInfo, notNullValue());
@@ -62,7 +62,7 @@ public class Part2LibraryTests {
     }
 
     @Test
-    public void test07CheckBookInfoQuery() {
+    public void test12CheckBookInfoQuery() {
         assertThat(input, notNullValue());
         assertThat(display, notNullValue());
         assertThat(buttonBookInfo, notNullValue());
@@ -82,7 +82,7 @@ public class Part2LibraryTests {
     }
 
     @Test
-    public void test08CheckCheckedOutQuery() {
+    public void test13CheckCheckedOutQuery() {
         assertThat(input, notNullValue());
         assertThat(display, notNullValue());
         assertThat(buttonCheckedOut, notNullValue());
@@ -106,7 +106,7 @@ public class Part2LibraryTests {
     }
 
     @Test
-    public void test09CheckCheckoutFunctionality() {
+    public void test14CheckCheckoutFunctionality() {
         activity.checkOut(43, 17);
 
         assertThat(input, notNullValue());
@@ -133,7 +133,7 @@ public class Part2LibraryTests {
     }
 
     @Test
-    public void test10CheckCheckinFunctionality() {
+    public void test15CheckCheckinFunctionality() {
         activity.checkIn(43, 17);
 
         assertThat(input, notNullValue());
