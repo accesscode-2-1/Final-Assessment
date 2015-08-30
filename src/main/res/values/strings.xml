@@ -24,4 +24,7 @@
     <string name="show_color">Show Color</string>
     <string name="hide_color">Hide Color</string>
 
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
