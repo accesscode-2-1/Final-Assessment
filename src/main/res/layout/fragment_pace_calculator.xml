@@ -27,6 +27,7 @@
             android:layout_weight="6"
             android:inputType="numberDecimal"
             android:hint="@string/hint_distance"
+
             />
 
     </LinearLayout>
