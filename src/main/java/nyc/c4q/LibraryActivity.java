@@ -3,12 +3,21 @@ package nyc.c4q;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class LibraryActivity extends Activity {
 
     public EditText inputParameter;
+    private TextView display;
+    private Button buttonMemberInfo;
+    private Button buttonBookInfo;
+    private Button buttonCheckedOut;
+
+
+    private static final String TAG = LibraryActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +25,27 @@ public class LibraryActivity extends Activity {
         setContentView(R.layout.activity_library);
 
         inputParameter = (EditText) findViewById(R.id.input_parameter);
+        display = (TextView) findViewById(R.id.text_display);
+        buttonMemberInfo = (Button) findViewById(R.id.button_getMember);
+        buttonBookInfo = (Button) findViewById(R.id.button_getBook);
+        buttonCheckedOut = (Button) findViewById(R.id.button_getCheckedOut);
+
+//   //  MemberInfo memberInfo = JSONHelperVerison.loadStaticMemberJsonRawUsingGson(this, R.raw.members);
+//     // Log.d(TAG, "membersJSON:\n" + memberInfo);
+//
+//     String memberResponse = JSONHelperVerison.convertToJsonUsingGson(memberInfo);
+//      Log.d(TAG, "membersjson:" + memberResponse);
     }
 
     public void checkOut(int memberId, int bookId) {
         // TODO This method is called when the member with the given ID checks
         //      out the book with the given ID. Update the system accordingly.
         //      The due date for the book is two weeks from today.
+
+
+
+
+
     }
 
     public boolean checkIn(int memberId, int bookId) {
@@ -35,6 +59,7 @@ public class LibraryActivity extends Activity {
 
     public void button_getMember_onClick(View view) {
         String name = inputParameter.getText().toString();
+
 
         // TODO Display member information for the member with the given name.
     }
@@ -52,5 +77,13 @@ public class LibraryActivity extends Activity {
         //      currently has checked out, ordered by due date, with the
         //      earliest due first.
     }
+
+
+
+
+
+
+
+
 
 }

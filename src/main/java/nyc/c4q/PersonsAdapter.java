@@ -28,7 +28,7 @@ public class PersonsAdapter extends ArrayAdapter <Person> {
         TextView tvName= (TextView) convertView.findViewById(R.id.text_name);
         TextView tvHouse = (TextView) convertView.findViewById(R.id.text_house);
 
-        tvName.setText(person.firstName);
+        tvName.setText(person.firstName +" " + person.lastName);
         tvHouse.setText(person.house.name());
        //Todo: set house color
        // convertView.setBackgroundColor();
