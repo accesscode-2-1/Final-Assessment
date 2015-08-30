@@ -46,14 +46,9 @@ public class ListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        ArrayAdapter<Person> itemsAdapter =
+        ArrayAdapter<Person> peopleAdapter =
                 new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, PEOPLE);
-
         list = (ListView) findViewById(R.id.list);
-
-        list.setAdapter(itemsAdapter);
+        list.setAdapter(peopleAdapter);
     }
-
-
-
 }

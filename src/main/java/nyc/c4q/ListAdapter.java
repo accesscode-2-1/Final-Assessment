@@ -22,7 +22,7 @@ public class ListAdapter extends ArrayAdapter<Person> {
         // Get data for current position
         Person person = getItem(position);
 
-        // Check if an existing view is being reused, otherwise inflate the view
+        // Is existing view being used? If not, inflate a view.
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listitem_member, parent, false);
         }
@@ -32,8 +32,8 @@ public class ListAdapter extends ArrayAdapter<Person> {
         TextView tvHouse = (TextView) convertView.findViewById(R.id.text_house);
 
         // Populate data into view using data object
-        tvName.setText(person.firstName + " " + person.lastName);
-        tvHouse.setText(person.house);
+        tvName.setText(person.getFirstName() + " " + person.getLastName());
+        tvHouse.setText(person.getHouse().toString());
 
         return convertView;
     }

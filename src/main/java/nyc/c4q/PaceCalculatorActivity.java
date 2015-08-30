@@ -5,15 +5,13 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.ArrayList;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class PaceCalculatorActivity extends FragmentActivity {
     private double inputDistance;
@@ -22,48 +20,52 @@ public class PaceCalculatorActivity extends FragmentActivity {
     private int inputPaceMin;
     private int inputPaceSec;
 
-    @Bind(R.id.input_distance)
-    EditText etDistance;
-    @Bind(R.id.input_time_min)
-    EditText etTimeMin;
-    @Bind(R.id.input_time_sec)
-    EditText etTimeSec;
-    @Bind(R.id.input_pace_min)
-    EditText etPaceMin;
-    @Bind(R.id.input_pace_sec)
-    EditText etPaceSec;
-    @Bind(R.id.button_calculate)
-    Button btnCalculate;
+    private String distanceStr;
+    private String timeStr;
+    private String paceStr;
+
+    private String timeMinStr;
+    private String timeSecStr;
+    private String paceMinStr;
+    private String paceSecStr;
+
+    private EditText etDistance;
+    private EditText etTimeMin;
+    private EditText etTimeSec;
+    private EditText etPaceMin;
+    private EditText etPaceSec;
+    private Button btnCalculate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pace_calculator);
 
-        ButterKnife.bind(this);
+        initViews();
 
         // get fragment manager
         FragmentManager fm = getFragmentManager();
 
+        CalcFragment calcFrag = new CalcFragment();
+
         // fragment add
         FragmentTransaction ft = fm.beginTransaction();
-        ft.add(R.id.fragment_pace_calculator, new Fragment());
+        ft.add(R.id.fragment_pace_calculator, calcFrag);
         ft.commit();
 
         // todo: fix fragment, calculate
     }
 
-    @OnClick(R.id.button_calculate)
-    public void calculate(View view) {
+    private void initViews() {
+        etDistance = (EditText) findViewById(R.id.input_distance);
+        etTimeMin = (EditText) findViewById(R.id.input_time_min);
+        etTimeSec = (EditText) findViewById(R.id.input_time_sec);
+        etPaceMin = (EditText) findViewById(R.id.input_pace_min);
+        etPaceSec = (EditText) findViewById(R.id.input_pace_sec);
+    }
 
-        // get values from edittexts
-        String distanceStr = etDistance.getText().toString();
-        String timeMinStr = etTimeMin.getText().toString();
-        String timeSecStr = etTimeSec.getText().toString();
-        String paceMinStr = etPaceMin.getText().toString();
-        String paceSecStr = etPaceSec.getText().toString();
-
-        validateInput(distanceStr, timeMinStr, timeSecStr, paceMinStr, paceSecStr);
+    private double calculate(String distanceStr, String timeStr, String paceStr) {
+        double answer = 0;
 
         // if distance + time
 //        if ((!distanceStr.isEmpty()) && (!timeStr.isEmpty()) {
@@ -74,6 +76,8 @@ public class PaceCalculatorActivity extends FragmentActivity {
 
         // if pace + distance
 
+        return answer;
+
     }
 
     private void validateInput(String distanceStr,
@@ -83,8 +87,8 @@ public class PaceCalculatorActivity extends FragmentActivity {
                                String paceSecStr) {
 
         String decimal = ".";
-        String timeStr = timeMinStr += decimal += timeSecStr;
-        String paceStr = paceMinStr += decimal += paceSecStr;
+        timeStr = timeMinStr += decimal += timeSecStr;
+        paceStr = paceMinStr += decimal += paceSecStr;
 
         checkIfInputValid(distanceStr, timeStr, paceStr);
         checkIfNoInputsEmpty(distanceStr, timeStr, paceStr);
@@ -100,7 +104,7 @@ public class PaceCalculatorActivity extends FragmentActivity {
 
         // iterate and verify whether input is in numeric characters only. ignore decimal.
 //        for (String field : input) {
-//            if (field.isNumeric) {
+//            if (field.charAt(i).isNumber || field.charAt(i).equals('.')) {
 //                // continue
 //            }
 //        }
@@ -116,7 +120,7 @@ public class PaceCalculatorActivity extends FragmentActivity {
     }
 
     private void checkIfTwoInputsEmpty(String distanceStr, String timeStr, String paceStr) {
-        // if one has data specified...not the fastest way to check.
+        // if only one has data specified...
         if ((!distanceStr.isEmpty()) &&
                 (timeStr.isEmpty()) &&
                 (paceStr.isEmpty())) {
@@ -145,4 +149,31 @@ public class PaceCalculatorActivity extends FragmentActivity {
         }
     }
 
+    public class CalcFragment extends Fragment implements View.OnClickListener {
+        private Button btnCalculate;
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View view = inflater.inflate(R.layout.fragment_pace_calculator, null);
+            btnCalculate = (Button) findViewById(R.id.button_calculate);
+            btnCalculate.setOnClickListener(this);
+
+            return view;
+        }
+
+        @Override
+        public void onClick(View v) {
+            // get values from edittexts
+            distanceStr = etDistance.getText().toString();
+            timeMinStr = etTimeMin.getText().toString();
+            timeSecStr = etTimeSec.getText().toString();
+            paceMinStr = etPaceMin.getText().toString();
+            paceSecStr = etPaceSec.getText().toString();
+
+            validateInput(distanceStr, timeMinStr, timeSecStr, paceMinStr, paceSecStr);
+
+            calculate(distanceStr, timeStr, paceStr);
+        }
+    }
 }
