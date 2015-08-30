@@ -3,6 +3,7 @@ package nyc.c4q;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 public class LibraryActivity extends Activity {
 
+    Button buttonMemberInfo, buttonBookInfo, buttonCheckedOut;
     public TextView textDisplay;
     public EditText inputParameter;
     Book book;
@@ -26,9 +28,20 @@ public class LibraryActivity extends Activity {
         inputParameter = (EditText) findViewById(R.id.input_parameter);
         textDisplay = (TextView) findViewById(R.id.text_display);
 
+        buttonMemberInfo = (Button) findViewById(R.id.button_getMember);
+        buttonBookInfo   = (Button) findViewById(R.id.button_getBook);
+        buttonCheckedOut = (Button) findViewById(R.id.button_getCheckedOut);
+        buttonCheckedOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkOut(member.getMemberID(), book.getBookID());
+            }
+        });
+
         Gson gson = new Gson();
         book = gson.fromJson("books.json", Book.class);
         member = gson.fromJson("members.json", Member.class);
+
 
 
 

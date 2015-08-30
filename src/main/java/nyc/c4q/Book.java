@@ -8,10 +8,10 @@ import com.google.gson.annotations.SerializedName;
 public class Book {
 
     @SerializedName("id")
-    private int bookTitle;
+    private int bookID;
 
     @SerializedName("title")
-    private String bookID;
+    private String bookTitle;
 
     @SerializedName("author")
     private String bookAuthor;
@@ -52,19 +52,19 @@ public class Book {
     @SerializedName("duedateyear")
     private int bookDueYear;
 
-    public int getBookTitle() {
+    public String getBookTitle() {
         return bookTitle;
     }
 
-    public void setBookTitle(int bookTitle) {
+    public void setBookTitle(String bookTitle) {
         this.bookTitle = bookTitle;
     }
 
-    public String getBookID() {
+    public int getBookID() {
         return bookID;
     }
 
-    public void setBookID(String bookID) {
+    public void setBookID(int bookID) {
         this.bookID = bookID;
     }
 
