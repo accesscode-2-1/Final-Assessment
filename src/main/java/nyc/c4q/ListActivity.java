@@ -2,8 +2,7 @@ package nyc.c4q;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
@@ -47,7 +46,14 @@ public class ListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        ArrayAdapter<Person> itemsAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, PEOPLE);
+
         list = (ListView) findViewById(R.id.list);
+
+        list.setAdapter(itemsAdapter);
     }
+
+
 
 }
