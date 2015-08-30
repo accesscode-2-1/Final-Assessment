@@ -17,6 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:text="@string/last_first"
+        android:onClick="onNameClick"
         />
 
     <Button
