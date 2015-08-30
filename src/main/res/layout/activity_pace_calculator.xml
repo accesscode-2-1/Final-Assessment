@@ -4,5 +4,25 @@
     android:id="@+id/activity_pace_calculator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nyc.c4q.PaceCalculatorActivity"
-    />
+    tools:context="nyc.c4q.PaceCalculatorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <fragment
+            android:name="nyc.c4q.PaceCalculatorFragment"
+            android:id="@+id/paceFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+
+
+
+
+    </FrameLayout>

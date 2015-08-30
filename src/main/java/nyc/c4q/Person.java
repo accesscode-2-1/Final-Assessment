@@ -1,6 +1,8 @@
 package nyc.c4q;
 
-public class Person {
+import java.util.Comparator;
+
+public class Person implements Comparator<Person> {
     public String firstName;
     public String lastName;
     public House house;
@@ -9,5 +11,11 @@ public class Person {
         this.firstName = firstName;
         this.lastName  = lastName;
         this.house     = house;
+    }
+
+
+    @Override
+    public int compare(Person person, Person t1) {
+        return 0;
     }
 }
