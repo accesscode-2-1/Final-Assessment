@@ -1,15 +1,25 @@
 package nyc.c4q;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
-public class ListActivity extends Activity {
+public class ListActivity extends Activity{
 
     public ListView list;
+    public Button buttonColor;
+    public Button buttonName;
+    public TextView textName;
+    public TextView textHouse;
+    public Person mPerson;
 
     public static final Person[] PEOPLE = {
         new Person("Hannah",    "Abbott",          House.Hufflepuff),
@@ -46,8 +56,31 @@ public class ListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        buttonName  = (Button) findViewById(R.id.button_name);
+        buttonColor = (Button) findViewById(R.id.button_color);
+        textName = (TextView)findViewById(R.id.text_name);
+        textHouse =(TextView)findViewById(R.id.text_house);
+
+
+
 
         list = (ListView) findViewById(R.id.list);
+        ArrayAdapter<Person> itemsAdapter = new ArrayAdapter<Person>(this,R.layout.activity_list,PEOPLE);
+        list.setAdapter(itemsAdapter);
+        itemsAdapter.addAll(PEOPLE);
+
+        //I was planning to compare the firstname which would obtain the last name and house
+
+        buttonName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                textName.setText(mPerson.getFirstName());
+
+
+            }
+        });
+
     }
 
 }
