@@ -1,17 +1,15 @@
 package nyc.c4q;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 
 public class ListActivity extends Activity {
@@ -20,6 +18,9 @@ public class ListActivity extends Activity {
     private ArrayList<Person> people;
     private Button lastFirstButton, showColorButton;
     private boolean doShowColor, displayLastFirst;
+    private static final String S_PREF = "s pref";
+    private static final String SHOW_COLOR = "show color";
+    private static final String DISPLAY_LAST_FIRST = "last name first";
 
     public static final Person[] PEOPLE = {
         new Person("Hannah",    "Abbott",          House.Hufflepuff),
@@ -56,12 +57,13 @@ public class ListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        SharedPreferences sharedPreferences = getSharedPreferences(S_PREF,MODE_PRIVATE);
+        doShowColor = sharedPreferences.getBoolean(SHOW_COLOR, true);
+        displayLastFirst = sharedPreferences.getBoolean(DISPLAY_LAST_FIRST, true);
 
         list = (ListView) findViewById(R.id.list);
         lastFirstButton = (Button) findViewById(R.id.button_name);
         showColorButton = (Button) findViewById(R.id.button_color);
-        doShowColor = true;
-        displayLastFirst = true;
         people = new ArrayList<>();
 
         for(int i = 0; i < PEOPLE.length; i++){
@@ -70,36 +72,57 @@ public class ListActivity extends Activity {
 
         setAdapter();
 
-
+        if(!displayLastFirst){
+            lastFirstButton.setText("First Last");
+        }
         lastFirstButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (lastFirstButton.getText().toString().equals("Last, First")) {
                     lastFirstButton.setText("First Last");
-                    displayLastFirst = false;
+                    setDisplayLastFirst(false);
                     setAdapter();
                 } else {
                     lastFirstButton.setText("Last, First");
-                    displayLastFirst = true;
+                    setDisplayLastFirst(true);
                     setAdapter();
                 }
             }
         });
 
+        if(!doShowColor){
+            showColorButton.setText("Hide Color");
+        }
         showColorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (showColorButton.getText().toString().equals("Show Color")) {
                     showColorButton.setText("Hide Color");
-                    doShowColor = false;
+                    setShowColor(false);
                     setAdapter();
                 } else {
                     showColorButton.setText("Show Color");
-                    doShowColor = true;
+                    setShowColor(true);
                     setAdapter();
                 }
             }
         });
+    }
+
+    private void setShowColor(boolean bool){
+        doShowColor = bool;
+        SharedPreferences sharedPreferences = getSharedPreferences(S_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(SHOW_COLOR, bool);
+        editor.commit();
+    }
+
+    private void setDisplayLastFirst(boolean bool){
+        displayLastFirst = bool;
+        SharedPreferences sharedPreferences = getSharedPreferences(S_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(DISPLAY_LAST_FIRST, bool);
+        editor.commit();
     }
 
     private void setAdapter() {
