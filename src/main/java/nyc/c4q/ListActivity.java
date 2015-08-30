@@ -1,15 +1,24 @@
 package nyc.c4q;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class ListActivity extends Activity {
+public class ListActivity extends android.app.ListActivity {
 
-    public ListView list;
+    private ListActivity activity;
+    private ListView listView;
+    private CustomListAdapter adapter;
+    private List<Person> resultList = new ArrayList<Person>();
+    private ToggleButton buttonName;
+    private Button buttonColor;
 
     public static final Person[] PEOPLE = {
         new Person("Hannah",    "Abbott",          House.Hufflepuff),
@@ -42,12 +51,31 @@ public class ListActivity extends Activity {
         new Person("Ron",       "Weasley",         House.Gryffindor)
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        list = (ListView) findViewById(R.id.list);
+        listView = (ListView) findViewById(android.R.id.list);
+        adapter = new CustomListAdapter(this, resultList);
+        listView.setAdapter(adapter);
+
+        buttonName  = (ToggleButton) findViewById(R.id.button_name);
+        buttonColor = (Button) findViewById(R.id.button_color);
+
+        buttonName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringBuffer result = new StringBuffer();
+                //if the click is on
+                result.append("First and Last").append();
+
+                //if the click is off
+                result.append("Last and First ").append();
+                Toast.makeText(ListActivity.this, result.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
