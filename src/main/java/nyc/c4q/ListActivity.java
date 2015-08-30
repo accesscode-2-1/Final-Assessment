@@ -2,14 +2,28 @@ package nyc.c4q;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ListActivity extends Activity {
 
     public ListView list;
+    ArrayList<Person> mPersonArrayList = new ArrayList<Person>();
 
     public static final Person[] PEOPLE = {
         new Person("Hannah",    "Abbott",          House.Hufflepuff),
@@ -47,7 +61,50 @@ public class ListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        ArrayList<Person> arrayOfPersons = new ArrayList<Person>();
+        CustomAdapter adapter = new CustomAdapter(this, arrayOfPersons);
         list = (ListView) findViewById(R.id.list);
+
+        list.setAdapter(adapter);
+
+
+//        try {
+//
+//            JSONArray jsonArray= new JSONArray("");
+//            JSONObject jsonObjectb = (JSONObject)jsonArray.getJSONObject(0);
+//            JSONArray st = jsonObjectb.getJSONArray("name");
+//            for(int i=0;i<st.length();i++)
+//            {
+//                String street = st.getString(i);
+//                Log.d("MainActivity", "K lio " + street);
+//            }
+//        }catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+
+
     }
+
+    private void getData() {
+
+
+
+        for (int i = 0; i < PEOPLE.length; i++) {
+
+            Person listData = new Person();
+            String finals;
+
+            finals = listData.firstName;
+
+
+
+
+
+        }
+    }
+
+
+
 
 }

@@ -1,5 +1,11 @@
 package nyc.c4q;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class Person {
     public String firstName;
     public String lastName;
@@ -10,4 +16,10 @@ public class Person {
         this.lastName  = lastName;
         this.house     = house;
     }
+
+    public Person(){
+
+    }
+
+
 }
