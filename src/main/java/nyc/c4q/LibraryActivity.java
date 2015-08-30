@@ -4,19 +4,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -24,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import nyc.c4q.db.Book;
 import nyc.c4q.db.DatabaseHelper;
@@ -34,7 +32,10 @@ public class LibraryActivity extends Activity {
 
     public EditText inputParameter;
     DatabaseHelper dbHelper;
+    TextView displayInfo;
     Context context;
+    List<Member> members = null;
+    List<Book> books = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class LibraryActivity extends Activity {
 
         inputParameter = (EditText) findViewById(R.id.input_parameter);
         dbHelper = DatabaseHelper.getInstance(this);
+        displayInfo = (TextView) findViewById(R.id.text_display);
 
         new dbInitialize().execute();
     }
@@ -98,6 +100,7 @@ public class LibraryActivity extends Activity {
                     e.printStackTrace();
                 }
             }
+            Log.d("DATABASE", "LOADED");
 
             return null;
         }
@@ -119,26 +122,54 @@ public class LibraryActivity extends Activity {
     }
 
     public void button_getMember_onClick(View view) {
-        String name = inputParameter.getText().toString();
+        final String name = inputParameter.getText().toString();
 
         // TODO Display member information for the member with the given name.
-        Member member = null;
+
+
         try {
-            member = dbHelper.loadSpecificMember(name);
+            members = dbHelper.loadSpecificMember(name);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        if(member != null){
-
+        if(members != null && members.size() > 0){
+            Log.d("MEMBER",members.get(0).getId() + "");
+            displayInfo.setText(members.get(0).toString());
+        }else{
+            Toast.makeText(context,"Member not found",Toast.LENGTH_SHORT).show();
         }
 
+        inputParameter.setText("");
     }
 
     public void button_getBook_onClick(View view) {
         String isbn = inputParameter.getText().toString();
+        Integer isbnNumber = 0;
+        try {
+            isbnNumber = Integer.parseInt(isbn);
+        }catch(NumberFormatException e){
+            e.printStackTrace();
+        }
 
         // TODO Display book information for the book with the given ISBN.
+
+
+
+        try {
+            books = dbHelper.loadSpecificBook(isbnNumber);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if(books != null && books.size() > 0){
+            Log.d("BOOK",books.get(0).getId() + "");
+            displayInfo.setText(books.get(0).toString());
+        }else{
+            Toast.makeText(context,"Book not found",Toast.LENGTH_SHORT).show();
+        }
+
+        inputParameter.setText("");
     }
 
     public void button_getCheckedOut_onClick(View view) {

@@ -10,7 +10,7 @@ public class Member {
 
     public static final String NAME = "NAME";
     @Expose
-    @DatabaseField
+    @DatabaseField(id = true)
     public Integer id;
     @Expose
     @DatabaseField(columnName = NAME)
@@ -33,6 +33,10 @@ public class Member {
     @Expose
 	@DatabaseField
     public String state;
+
+    public Member(){
+
+    }
 
     /**
      *
@@ -162,6 +166,6 @@ public class Member {
 
     @Override
     public String toString() {
-        return "id: " + id + "\nname: " + name + "\ndob: " + dobDay+"/";
+        return "id: " + id + "\nname: " + name + "\ndob: " + dobDay+"/"+dobMonth+"/"+dobYear + "\nlocation: " + city + ", " + state;
     }
 }

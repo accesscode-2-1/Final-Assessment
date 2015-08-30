@@ -7,13 +7,13 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable
 public class Book {
 
-    private static final String ID = "ID";
-    private static final String TITLE = "TITLE";
-    private static final String AUTHOR = "AUTHOR";
-    private static final String ISBN = "ISBN";
-    private static final String ISBN13 = "ISBN13";
+    public static final String ID = "ID";
+    public static final String TITLE = "TITLE";
+    public static final String AUTHOR = "AUTHOR";
+    public static final String ISBN = "ISBN";
+    public static final String ISBN13 = "ISBN13";
     @Expose
-    @DatabaseField(columnName = ID)
+    @DatabaseField(columnName = ID, id = true)
     public Integer id;
     @Expose
     @DatabaseField(columnName = TITLE)
@@ -57,6 +57,10 @@ public class Book {
     @Expose
     @DatabaseField
     public Integer duedateday;
+
+    public Book(){
+
+    }
 
     /**
      *

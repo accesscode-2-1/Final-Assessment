@@ -4,6 +4,7 @@ import android.accounts.Account;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
@@ -14,6 +15,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,6 +64,18 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
+    public List<Book> loadSpecificBook(int id) throws SQLException {
+        Log.d("DB SEARCH", "ISBN: "+ id);
+        Dao<Book, Integer> memberDao = DaoManager.createDao(connectionSource, Book.class);
+        QueryBuilder<Book, Integer> queryBuilder = memberDao.queryBuilder();
+        queryBuilder.where().eq(Book.ID, id);
+        PreparedQuery<Book> preparedQuery = queryBuilder.prepare();
+
+        Log.d("Book Search", "Complete");
+
+        return memberDao.query(preparedQuery);
+    }
+
     public void insertRow(Book book) throws SQLException {
         getDao(Book.class).create(book);
     }
@@ -70,14 +84,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return getDao(Book.class).queryForAll();
     }
 
-    public Member loadSpecificMember(String name) throws SQLException {
+    public List<Member> loadSpecificMember(String name) throws SQLException {
+        Log.d("DB SEARCH", "Member: "+ name);
 
         Dao<Member, String> memberDao = DaoManager.createDao(connectionSource, Member.class);
         QueryBuilder<Member, String> queryBuilder = memberDao.queryBuilder();
         queryBuilder.where().eq(Member.NAME, name);
         PreparedQuery<Member> preparedQuery = queryBuilder.prepare();
 
-        return memberDao.query(preparedQuery).get(0);
+        Log.d("Member Search", "Complete");
+        return memberDao.query(preparedQuery);
     }
 
     public void insertRow(Member member) throws SQLException {
