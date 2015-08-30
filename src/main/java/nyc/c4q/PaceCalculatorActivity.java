@@ -20,6 +20,6 @@ public class PaceCalculatorActivity extends FragmentActivity {
 
     }
 
-    }
+}
 
 

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by c4q-marbella on 8/30/15.
@@ -19,6 +20,19 @@ public class PaceCalFragment extends Fragment {
     EditText inputPaceMin;
     EditText inputPaceSec;
     Button buttonCalculate;
+
+    double timeSec;
+    double timeMin;
+    double paceSec;
+    double paceMin;
+    double distance;
+
+    String tSec;
+    String tMin;
+    String pSec;
+    String pMin;
+    String dist;
+
 
 
     public static PaceCalFragment newInstance(int page, String title) {
@@ -51,4 +65,54 @@ public class PaceCalFragment extends Fragment {
 
         return view;
     }
+
+    public void validateInputs(){
+
+        dist = inputDistance.getText().toString();
+        tMin = inputTimeMin.getText().toString();
+        tSec = inputTimeSec.getText().toString();
+        pMin = inputPaceMin.getText().toString();
+        pSec = inputPaceSec.getText().toString();
+
+        if(dist.isEmpty() && tMin.isEmpty() && tSec.isEmpty() && pSec.isEmpty() && pMin.isEmpty()) {
+             Toast.makeText(getActivity(),"Enter values for two variables",Toast.LENGTH_SHORT).show();
+        }else if (dist.isEmpty()) {
+             calculateDistance();
+
+        }
+        else{
+
+            timeSec = Long.parseLong(inputTimeSec.getText().toString());
+            distance = Long.parseLong(inputDistance.getText().toString());
+
+        }
+
+    }
+
+    public double calculateDistance() {
+
+        return 9;
+    }
+
+    public double calculatePaceInSec(){
+
+
+
+        return 9.0;
+    }
+
+    public double calculatePaceInMin(){
+
+
+
+        return 9.0;
+    }
+
+
+    public void onCalculateClick (View v){
+        validateInputs();
+
+    }
+
+
 }

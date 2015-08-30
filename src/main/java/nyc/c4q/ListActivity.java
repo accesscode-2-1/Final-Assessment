@@ -2,14 +2,14 @@ package nyc.c4q;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.ToggleButton;
 
 
 public class ListActivity extends Activity {
 
     public ListView list;
+    ToggleButton togglebt;
 
     public static final Person[] PEOPLE = {
         new Person("Hannah",    "Abbott",          House.Hufflepuff),
@@ -47,7 +47,12 @@ public class ListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        PersonsAdapter adapter = new PersonsAdapter(this,PEOPLE);
         list = (ListView) findViewById(R.id.list);
+        list.setAdapter(adapter);
+
+        togglebt = (ToggleButton) findViewById(R.id.button_name);
+
     }
 
 }
