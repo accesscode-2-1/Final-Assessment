@@ -10,4 +10,9 @@ public class Person {
         this.lastName  = lastName;
         this.house     = house;
     }
+
+    @Override
+    public String toString() {
+        return this.firstName + this.lastName + this.house;
+    }
 }
