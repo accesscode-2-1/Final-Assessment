@@ -66,6 +66,7 @@ public class Part1PaceCalculatorTests {
         buttonCalculate.callOnClick();
 
         Assertions.assertThat(inputDistance).containsText("4.8");
+
     }
 
     @Test
