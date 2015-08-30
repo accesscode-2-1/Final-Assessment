@@ -20,7 +20,7 @@ public class Books {
     @DatabaseField
     private int publishyear;
 
-    public Books(String title, String author, long isbn, long isbn13, String publisher, int publishyear) {
+    public Books(String title, String author, String isbn, String isbn13, String publisher, int publishyear) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;

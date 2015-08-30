@@ -51,17 +51,22 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    public void insertData() throws SQLException
-    {
-        Dao<Members, ?> dao = getDao(Members.class);
-
-        dao.delete(dao.deleteBuilder().prepare());
+    public void insertMemberRow(int id, String name, int dob_month, int dob_day, int dob_year, String city, String state) {
+        Members member = new Members( name, dob_month, dob_day, dob_year, city, state);
+        try {
+            getDao(Members.class).create(member);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void insertRow(String name, int age, String favoriteColor, String description, String address, String city, String zip) throws SQLException
-    {
-       Members members = new Members();
-
+    public void insertBookRow(int id, String title, String author, String isbn, String isbn13, String publisher, int publishyear) {
+        Books book = new Books( title, author, isbn, isbn13, publisher, publishyear);
+        try {
+            getDao(Books.class).create(book);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Books> loadBookData() throws SQLException {
