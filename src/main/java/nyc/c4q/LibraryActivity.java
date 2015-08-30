@@ -1,14 +1,20 @@
 package nyc.c4q;
 
 import android.app.Activity;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import java.util.ArrayList;
 
 
 public class LibraryActivity extends Activity {
 
     public EditText inputParameter;
+    private Context mContext;
+    private SQLiteDatabase mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +22,12 @@ public class LibraryActivity extends Activity {
         setContentView(R.layout.activity_library);
 
         inputParameter = (EditText) findViewById(R.id.input_parameter);
+    }
+
+    private LibraryActivity (Context context) {
+        mContext = context.getApplicationContext();
+        mDatabase = new DatabaseHelper(mContext).getWritableDatabase();
+//        mBooks = new ArrayList<>();
     }
 
     public void checkOut(int memberId, int bookId) {

@@ -5,6 +5,8 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import nyc.c4q.BooksDbSchema.BooksTable;
+
 /**
  * Created by jaellysbales on 8/30/15.
  */
@@ -23,6 +25,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL("create table" + BooksTable.name + "(" +
+                        " _id integer primary key autoincrement, " +
+                        BooksTable.Cols.ID + ", " +
+                        BooksTable.Cols.TITLE + ", " +
+                        BooksTable.Cols.AUTHOR + ", " +
+                        BooksTable.Cols.ISBN + ", " +
+                        BooksTable.Cols.ISBN13 + ", " +
+                        BooksTable.Cols.PUBLISHER + ", " +
+                        BooksTable.Cols.PUBLISHYEAR + ", " +
+                        BooksTable.Cols.CHECKEDOUT + ", " +
+                        BooksTable.Cols.CHECKEDOUTBY + ", " +
+                        BooksTable.Cols.CHECKOUTDATEYEAR + ", " +
+                        BooksTable.Cols.CHECKOUTDATEMONTH + ", " +
+                        BooksTable.Cols.CHECKOUTDATEDAY + ", " +
+                        BooksTable.Cols.DUEDATEYEAR + ", " +
+                        BooksTable.Cols.DUEDATEMONTH + ", " +
+                        BooksTable.Cols.DUEDATEDAY + ", "
+        );
 
     }
 
