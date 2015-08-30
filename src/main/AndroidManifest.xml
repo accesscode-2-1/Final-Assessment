@@ -17,12 +17,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListViewActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".NetworkActivity" />
-        <activity android:name=".JSONActivity" />
-        <activity android:name=".NotificationActivity" />
-        <activity
             android:name=".PaceCalculatorActivity"
             android:label="@string/title_activity_pace_calculator"
             android:parentActivityName=".Unit3AssessmentActivity" >
