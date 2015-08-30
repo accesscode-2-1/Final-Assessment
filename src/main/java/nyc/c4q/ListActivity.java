@@ -48,6 +48,8 @@ public class ListActivity extends Activity {
         setContentView(R.layout.activity_list);
 
         list = (ListView) findViewById(R.id.list);
+        RosterListAdapter rosterListAdapter = new RosterListAdapter(PEOPLE, true, false);
+        list.setAdapter();
     }
 
 }
