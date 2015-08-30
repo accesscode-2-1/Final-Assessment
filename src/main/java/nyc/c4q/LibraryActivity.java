@@ -1,13 +1,14 @@
 package nyc.c4q;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import java.util.ArrayList;
+import nyc.c4q.BooksDbSchema.BooksTable;
 
 
 public class LibraryActivity extends Activity {
@@ -21,13 +22,11 @@ public class LibraryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        inputParameter = (EditText) findViewById(R.id.input_parameter);
-    }
-
-    private LibraryActivity (Context context) {
-        mContext = context.getApplicationContext();
-        mDatabase = new DatabaseHelper(mContext).getWritableDatabase();
+        mContext = this.getApplicationContext();
+//        mDatabase = new DatabaseHelper(mContext).getWritableDatabase();
 //        mBooks = new ArrayList<>();
+
+        inputParameter = (EditText) findViewById(R.id.input_parameter);
     }
 
     public void checkOut(int memberId, int bookId) {
@@ -55,6 +54,7 @@ public class LibraryActivity extends Activity {
         String isbn = inputParameter.getText().toString();
 
         // TODO Display book information for the book with the given ISBN.
+
     }
 
     public void button_getCheckedOut_onClick(View view) {
@@ -64,5 +64,33 @@ public class LibraryActivity extends Activity {
         //      currently has checked out, ordered by due date, with the
         //      earliest due first.
     }
+
+    private static ContentValues getContentValues(Books book) {
+        ContentValues values = new ContentValues();
+
+        values.put(BooksTable.Cols.ID, book.getId().toString());
+        values.put(BooksTable.Cols.TITLE, book.getTitle());
+        values.put(BooksTable.Cols.AUTHOR, book.getAuthor());
+        values.put(BooksTable.Cols.ISBN, book.getIsbn());
+        values.put(BooksTable.Cols.ISBN13, book.getIsbn13());
+        values.put(BooksTable.Cols.PUBLISHER, book.getPublisher());
+        values.put(BooksTable.Cols.PUBLISHYEAR, book.getPublishyear());
+        values.put(BooksTable.Cols.CHECKEDOUT, book.getCheckedout());
+        values.put(BooksTable.Cols.CHECKEDOUTBY, book.getCheckedoutby());
+        values.put(BooksTable.Cols.CHECKOUTDATEYEAR, book.getCheckoutdateyear());
+        values.put(BooksTable.Cols.CHECKOUTDATEMONTH, book.getCheckoutdatemonth());
+        values.put(BooksTable.Cols.CHECKOUTDATEDAY, book.getCheckoutdateday());
+        values.put(BooksTable.Cols.DUEDATEYEAR, book.getDuedateyear());
+        values.put(BooksTable.Cols.DUEDATEMONTH, book.getDuedatemonth());
+        values.put(BooksTable.Cols.DUEDATEDAY, book.getDuedateday());
+
+        return values;
+    }
+
+    public void addBook(Books b) {
+        ContentValues values = getContentValues(b);
+        mDatabase.insert(BooksTable.name, null, values);
+    }
+
 
 }
