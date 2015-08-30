@@ -10,13 +10,14 @@
     tools:context="nyc.c4q.ListActivity"
     >
 
-    <Button
+    <ToggleButton
         android:id="@+id/button_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:text="@string/last_first"
+        android:textOn="First_Last"
+        android:textOff="Last_First"
         />
 
     <Button

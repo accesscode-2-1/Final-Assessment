@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-
 public class LibraryActivity extends Activity {
 
     public EditText inputParameter;
@@ -52,5 +51,8 @@ public class LibraryActivity extends Activity {
         //      currently has checked out, ordered by due date, with the
         //      earliest due first.
     }
+
+
+    //I am not sure where on earth I'm suppose to put the Database.
 
 }
