@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,12 +12,14 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 
 public class LibraryActivity extends Activity {
 
     public EditText inputParameter;
     DBAdapter dbAdapter;
+    public TextView textDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,7 @@ public class LibraryActivity extends Activity {
         dbAdapter = new DBAdapter(this);
 
         inputParameter = (EditText) findViewById(R.id.input_parameter);
+        textDisplay=(TextView) findViewById(R.id.text_display);
 
         loadBookJSONFromAsset("books.json");
         loadMemberJSONFromAsset("members.json");
@@ -50,7 +54,7 @@ public class LibraryActivity extends Activity {
     public void button_getMember_onClick(View view) {
         String name = inputParameter.getText().toString();
 
-        dbAdapter.getDataForMember(name);
+        textDisplay.setText(dbAdapter.getDataForMember(name));
 
         // TODO Display member information for the member with the given name.
     }
@@ -58,11 +62,17 @@ public class LibraryActivity extends Activity {
     public void button_getBook_onClick(View view) {
         String isbn = inputParameter.getText().toString();
 
+        textDisplay.setText(dbAdapter.getBookInfo(isbn));
+
         // TODO Display book information for the book with the given ISBN.
     }
 
     public void button_getCheckedOut_onClick(View view) {
         String name = inputParameter.getText().toString();
+
+        ArrayList<String> checkedOutList=new ArrayList<>();
+
+        checkedOutList.addAll(dbAdapter.getCurrentlyCheckedOut(name));
 
         // TODO Display a list of books that the member with the given name
         //      currently has checked out, ordered by due date, with the

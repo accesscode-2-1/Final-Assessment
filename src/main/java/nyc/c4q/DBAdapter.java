@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Created by c4q-madelyntavarez on 8/30/15.
  */
@@ -43,7 +45,7 @@ public class DBAdapter {
         contentValues.put(DBHelper.ISBN13,isbn13);
         contentValues.put(DBHelper.PUBLISHER,publisher);
         contentValues.put(DBHelper.PUBLISHERYEAR,pushlisherYear);
-        contentValues.put(DBHelper.ISCHECKOUTOUT,isCheckedOut);
+        contentValues.put(DBHelper.ISCHECKEDOUT,isCheckedOut);
         contentValues.put(DBHelper.CHECKEDOUTBY,checkedOutBy);
         contentValues.put(DBHelper.CHECKOUTYEAR,checkoutYear);
         contentValues.put(DBHelper.CHECKOUTMONTH,checkOutMonth);
@@ -56,9 +58,7 @@ public class DBAdapter {
         return id2;
     }
     public String getDataForMember(String name) {
-        //Select Name, password from Table where name=""
         SQLiteDatabase dbs = dbHelper.getWritableDatabase();
-        //Select ID, Name and Password from table
         String[] columns = {DBHelper.UID, DBHelper.NAME, DBHelper.CITY, DBHelper.STATE, DBHelper.MONTH,DBHelper.DAY,DBHelper.YEAR};
         Cursor cursor = dbs.query(DBHelper.TABLE_NAME_2, columns, DBHelper.NAME + " = '" + name + "'", null, null, null, null);
 
@@ -82,6 +82,94 @@ public class DBAdapter {
         return buffer.toString();
     }
 
+    public String getBookInfo(String ISBN){
+
+        SQLiteDatabase dbs = dbHelper.getWritableDatabase();
+        String[] columns = {DBHelper.UID, DBHelper.TITLE, DBHelper.ISBN, DBHelper.ISBN13, DBHelper.PUBLISHER,DBHelper.PUBLISHERYEAR,DBHelper.ISCHECKEDOUT, DBHelper.CHECKOUTYEAR,DBHelper.CHECKOUTMONTH,
+        DBHelper.CHECKOUTDAY,DBHelper.DUEYEAR,DBHelper.DUEMONTH,DBHelper.DUEYEAR};
+
+        Cursor cursor = dbs.query(DBHelper.TABLE_NAME, columns, DBHelper.ISBN + " = '" + ISBN + "'", null, null, null, null);
+
+        StringBuffer buffer = new StringBuffer();
+        while (cursor.moveToNext()) {
+            int index1=cursor.getColumnIndex(DBHelper.UID);
+            int index2 = cursor.getColumnIndex(DBHelper.TITLE);
+            int index17=cursor.getColumnIndex(DBHelper.AUTHOR);
+            int index3 = cursor.getColumnIndex(DBHelper.ISBN);
+            int index4= cursor.getColumnIndex(DBHelper.ISBN13);
+            int index5=cursor.getColumnIndex(DBHelper.PUBLISHER);
+            int index6=cursor.getColumnIndex(DBHelper.PUBLISHERYEAR);
+
+            int userID=cursor.getInt(index1);
+            String title = cursor.getString(index2);
+            String author=cursor.getString(index17);
+            long isbn=cursor.getLong(index3);
+            long isbn13=cursor.getLong(index4);
+            String publisher=cursor.getString(index5);
+            long publicationYear=cursor.getLong(index6);
+
+            buffer.append("id: "+userID+"\n title: "+title + "\n author: " + author + "\n isbn: "+isbn+"\n" +
+                    "isbn13: "+isbn13+"\n publisher: "+publisher+"\n publication year: "+publicationYear);
+
+        }
+        return buffer.toString();
+    }
+
+    public ArrayList<String> getCurrentlyCheckedOut(String name){
+        int UID = 0;
+        SQLiteDatabase dbs = dbHelper.getWritableDatabase();
+        String[] columns = {DBHelper.UID, DBHelper.TITLE, DBHelper.ISBN, DBHelper.ISBN13, DBHelper.PUBLISHER,DBHelper.PUBLISHERYEAR,DBHelper.ISCHECKEDOUT, DBHelper.CHECKOUTYEAR,DBHelper.CHECKOUTMONTH,
+                DBHelper.CHECKOUTDAY,DBHelper.DUEYEAR,DBHelper.DUEMONTH,DBHelper.DUEYEAR};
+
+        Cursor cursor = dbs.query(DBHelper.TABLE_NAME_2, columns, DBHelper.NAME + " = '" + name + "'", null, null, null, null);
+        StringBuffer buffer = new StringBuffer();
+        while (cursor.moveToNext()) {
+            int index1=cursor.getColumnIndex(DBHelper.UID);
+            UID=cursor.getInt(index1);
+        }
+
+        SQLiteDatabase dbs1 = dbHelper.getWritableDatabase();
+        String[] columns1 = {DBHelper.UID, DBHelper.TITLE, DBHelper.ISBN, DBHelper.ISBN13, DBHelper.PUBLISHER,DBHelper.PUBLISHERYEAR,DBHelper.ISCHECKEDOUT, DBHelper.CHECKOUTYEAR,DBHelper.CHECKOUTMONTH,
+                DBHelper.CHECKOUTDAY,DBHelper.DUEYEAR,DBHelper.DUEMONTH,DBHelper.DUEYEAR};
+
+        Cursor cursor1 = dbs1.query(DBHelper.TABLE_NAME, columns1, DBHelper.CHECKEDOUTBY + " = '" + UID + "'", null, null, null, null);
+
+        StringBuffer buffer1 = new StringBuffer();
+
+
+        ArrayList<String> arrayList=new ArrayList<>();
+        while (cursor1.moveToNext()) {
+            int index1=cursor1.getColumnIndex(DBHelper.UID);
+            int index2 = cursor1.getColumnIndex(DBHelper.TITLE);
+            int index17=cursor1.getColumnIndex(DBHelper.AUTHOR);
+            int index3 = cursor1.getColumnIndex(DBHelper.ISBN);
+            int index4= cursor1.getColumnIndex(DBHelper.ISBN13);
+            int index5=cursor1.getColumnIndex(DBHelper.PUBLISHER);
+            int index6=cursor1.getColumnIndex(DBHelper.PUBLISHERYEAR);
+            int index7=cursor1.getColumnIndex(DBHelper.ISCHECKEDOUT);
+            int index8=cursor1.getColumnIndex(DBHelper.CHECKEDOUTBY);
+            int index9=cursor1.getColumnIndex(DBHelper.CHECKOUTYEAR);
+            int index10=cursor1.getColumnIndex(DBHelper.CHECKOUTMONTH);
+            int index11=cursor1.getColumnIndex(DBHelper.CHECKOUTDAY);
+            int index12=cursor1.getColumnIndex(DBHelper.DUEYEAR);
+            int index13=cursor1.getColumnIndex(DBHelper.DUEMONTH);
+            int index14= cursor1.getColumnIndex(DBHelper.DUEDAY);
+
+            String title = cursor1.getString(index2);
+            String author=cursor1.getString(index17);
+            String checkOutDate=cursor1.getInt(index10)+"/"+cursor1.getInt(index11)+"/"+cursor1.getInt(index9);
+            String dueDate=cursor1.getInt(index13)+"/"+cursor1.getInt(index14)+"/"+cursor1.getInt(index12);
+
+            String all="name: "+name+"title: "+title + "\n author: " + author + "\n checkout date: "+checkOutDate+"\n" +
+            "Due Date: "+dueDate;
+
+            arrayList.add(all);
+        }
+
+
+        return arrayList;
+    }
+
     static class DBHelper extends SQLiteOpenHelper {
         private static final String DATABASE_NAME = "LibraryDatabase";
         private static String TABLE_NAME = "LibraryBooks";
@@ -101,7 +189,7 @@ public class DBAdapter {
         private static final String AUTHOR="Author";
         private static final String ISBN13="ISBN13";
         private static final String PUBLISHER="Publisher";
-        private static final String ISCHECKOUTOUT="IsCheckedOut";
+        private static final String ISCHECKEDOUT="IsCheckedOut";
         private static final String PUBLISHERYEAR="PublisherYear";
         private static final String CHECKEDOUTBY="CheckedOutBy";
         private static final String CHECKOUTYEAR="CheckoutYear";
@@ -114,7 +202,7 @@ public class DBAdapter {
                 + " VARCHAR(255), " + CITY + " VARCHAR (255), "+STATE + " VARCHAR (255), "+ MONTH + " INTEGER PRIMARY KEY, " + DAY + " INTEGER PRIMARY KEY, " + YEAR + " INTEGER PRIMARY KEY);";
 
         private static final String CREATE_BOOK_TABLE = "Create table "+ TABLE_NAME_2+" ("+ UID+" Integer PRIMARY KEY, " + TITLE + " VARCHAR (255), "+ ISBN + " VARCHAR (255), "+ ISBN13 + " VARCHAR (255), "+
-                PUBLISHER + " VARCHAR (255), "+ PUBLISHERYEAR + " INTEGER PRIMARY KEY, " + CHECKEDOUTBY + " VARCHAR (255), "+ CHECKOUTYEAR + " INTEGER PRIMARY KEY, " +   CHECKOUTMONTH + " INTEGER PRIMARY KEY, " + CHECKOUTDAY + " INTEGER PRIMARY KEY, " +
+                PUBLISHER + " VARCHAR (255), "+ PUBLISHERYEAR + " INTEGER PRIMARY KEY, " + ISCHECKEDOUT+ " INTEGER PRIMARY KEY, " + CHECKEDOUTBY + " INTEGER PRIMARY KEY, " + CHECKOUTYEAR + " INTEGER PRIMARY KEY, " +   CHECKOUTMONTH + " INTEGER PRIMARY KEY, " + CHECKOUTDAY + " INTEGER PRIMARY KEY, " +
                 DUEYEAR + " INTEGER PRIMARY KEY, " + DUEMONTH + " INTEGER PRIMARY KEY, " + DUEDAY + " INTEGER PRIMARY KEY);";
 
         public DBHelper(Context context) {
