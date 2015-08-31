@@ -4,18 +4,38 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 
 public class LibraryActivity extends Activity {
 
     public EditText inputParameter;
+    DBAdapter dbAdapter;
+    public TextView textDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
+        dbAdapter = new DBAdapter(this);
 
         inputParameter = (EditText) findViewById(R.id.input_parameter);
+        textDisplay=(TextView) findViewById(R.id.text_display);
+
+
+
+        loadBookJSONFromAsset(R.raw.books);
+        loadMemberJSONFromAsset(R.raw.members);
+
+
     }
 
     public void checkOut(int memberId, int bookId) {
@@ -36,11 +56,15 @@ public class LibraryActivity extends Activity {
     public void button_getMember_onClick(View view) {
         String name = inputParameter.getText().toString();
 
+        textDisplay.setText(dbAdapter.getDataForMember(name));
+
         // TODO Display member information for the member with the given name.
     }
 
     public void button_getBook_onClick(View view) {
         String isbn = inputParameter.getText().toString();
+
+        textDisplay.setText(dbAdapter.getBookInfo(isbn));
 
         // TODO Display book information for the book with the given ISBN.
     }
@@ -48,9 +72,97 @@ public class LibraryActivity extends Activity {
     public void button_getCheckedOut_onClick(View view) {
         String name = inputParameter.getText().toString();
 
+        ArrayList<String> checkedOutList=new ArrayList<>();
+
+        checkedOutList.addAll(dbAdapter.getCurrentlyCheckedOut(name));
+
         // TODO Display a list of books that the member with the given name
         //      currently has checked out, ordered by due date, with the
         //      earliest due first.
     }
 
+    public void loadMemberJSONFromAsset(int fileName) {
+        String json = null;
+        try {
+            InputStream is = getResources().openRawResource(fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        sendMemberInfo(json);
+    }
+    public void loadBookJSONFromAsset(int fileName) {
+        String json = null;
+        try {
+            InputStream is = getResources().openRawResource(fileName);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        sendMemberInfo(json);
+    }
+
+    public void sendMemberInfo(String json){
+
+        try {
+            JSONArray obj = new JSONArray(json);
+
+            for(int i=0;i<obj.length();i++) {
+                JSONObject jsonObject = obj.getJSONObject(0);
+                int id = jsonObject.getInt("id");
+                String name = jsonObject.getString("name");
+                int birthMonth = jsonObject.getInt("dob_month");
+                int birthDay = jsonObject.getInt("dob_day");
+                int birthYear = jsonObject.getInt("dob_year");
+                String city = jsonObject.getString("city");
+                String state = jsonObject.getString("state");
+                dbAdapter.insertMemberData(id,name,city,state,birthMonth,birthDay,birthYear);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendBookInfoToDB(String json){
+        try {
+            JSONArray obj = new JSONArray(json);
+
+            for(int i=0;i<obj.length();i++) {
+                JSONObject jsonObject = obj.getJSONObject(0);
+                int id = jsonObject.getInt("id");
+                String title = jsonObject.getString("title");
+                String author=jsonObject.getString("author");
+                String isbn=jsonObject.getString("isbn");
+                String isbn13=jsonObject.getString("isbn13");
+                String publisher=jsonObject.getString("publisher");
+                int publishYear= jsonObject.getInt("publishyear");
+                boolean checkout=jsonObject.getBoolean("checkedout");
+                int checkoutby=jsonObject.getInt("checkoutby");
+                int chheckoutYear=jsonObject.getInt("checkoutdateyear");
+                int checkoutdatemonth=jsonObject.getInt("checkoutdatemonth");
+                int checkoutdateday=jsonObject.getInt("checkoutdateday");
+                int dueDateYear=jsonObject.getInt("duedateyear");
+                int dueDateMonth=jsonObject.getInt("duedatemonth");
+                int dueDateDay=jsonObject.getInt("duedateday");
+
+                dbAdapter.insertBookData(id,title,author,isbn,isbn13,publisher,publishYear,checkout,checkoutby,chheckoutYear,checkoutdatemonth,checkoutdateday
+                ,dueDateYear,dueDateMonth,dueDateDay);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
