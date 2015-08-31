@@ -21,14 +21,17 @@ public class DBAdapter {
     public long insertMemberData(int id, String name, String city, String state, int month, int day, int year) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DBHelper.UID,id);
+
+        contentValues.put(DBHelper.FOREIGNID,id);
         contentValues.put(DBHelper.NAME, name);
         contentValues.put(DBHelper.CITY, city);
         contentValues.put(DBHelper.MONTH,month);
         contentValues.put(DBHelper.DAY,day);
         contentValues.put(DBHelper.YEAR,year);
         contentValues.put(DBHelper.STATE, state);
+
         long id1 = db.insert(DBHelper.TABLE_NAME, null, contentValues);
+
         return id1;
     }
 
@@ -38,7 +41,7 @@ public class DBAdapter {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(DBHelper.UID,id);
+        contentValues.put(DBHelper.FOREIGNID,id);
         contentValues.put(DBHelper.TITLE,title);
         contentValues.put(DBHelper.AUTHOR,author);
         contentValues.put(DBHelper.ISBN,isbn);
@@ -59,12 +62,12 @@ public class DBAdapter {
     }
     public String getDataForMember(String name) {
         SQLiteDatabase dbs = dbHelper.getWritableDatabase();
-        String[] columns = {DBHelper.UID, DBHelper.NAME, DBHelper.CITY, DBHelper.STATE, DBHelper.MONTH,DBHelper.DAY,DBHelper.YEAR};
+        String[] columns = {DBHelper.UID, DBHelper.NAME, DBHelper.CITY, DBHelper.STATE, DBHelper.MONTH,DBHelper.DAY,DBHelper.YEAR,DBHelper.FOREIGNID};
         Cursor cursor = dbs.query(DBHelper.TABLE_NAME, columns, DBHelper.NAME + " = '" + name + "'", null, null, null, null);
 
         StringBuffer buffer = new StringBuffer();
         while (cursor.moveToNext()) {
-            int index1=cursor.getColumnIndex(DBHelper.UID);
+            int index1=cursor.getColumnIndex(DBHelper.FOREIGNID);
             int index2 = cursor.getColumnIndex(DBHelper.NAME);
             int index3 = cursor.getColumnIndex(DBHelper.CITY);
             int index4= cursor.getColumnIndex(DBHelper.STATE);
@@ -86,13 +89,13 @@ public class DBAdapter {
 
         SQLiteDatabase dbs = dbHelper.getWritableDatabase();
         String[] columns = {DBHelper.UID, DBHelper.TITLE, DBHelper.ISBN, DBHelper.ISBN13, DBHelper.PUBLISHER,DBHelper.PUBLISHERYEAR,DBHelper.ISCHECKEDOUT, DBHelper.CHECKOUTYEAR,DBHelper.CHECKOUTMONTH,
-        DBHelper.CHECKOUTDAY,DBHelper.DUEYEAR,DBHelper.DUEMONTH,DBHelper.DUEYEAR};
+        DBHelper.CHECKOUTDAY,DBHelper.DUEYEAR,DBHelper.DUEMONTH,DBHelper.DUEYEAR,DBHelper.FOREIGNID};
 
         Cursor cursor = dbs.query(DBHelper.TABLE_NAME, columns, DBHelper.ISBN + " = '" + ISBN + "'", null, null, null, null);
 
         StringBuffer buffer = new StringBuffer();
         while (cursor.moveToNext()) {
-            int index1=cursor.getColumnIndex(DBHelper.UID);
+            int index1=cursor.getColumnIndex(DBHelper.FOREIGNID);
             int index2 = cursor.getColumnIndex(DBHelper.TITLE);
             int index17=cursor.getColumnIndex(DBHelper.AUTHOR);
             int index3 = cursor.getColumnIndex(DBHelper.ISBN);
@@ -118,13 +121,12 @@ public class DBAdapter {
     public ArrayList<String> getCurrentlyCheckedOut(String name){
         int UID = 0;
         SQLiteDatabase dbs = dbHelper.getWritableDatabase();
-        String[] columns = {DBHelper.UID, DBHelper.TITLE, DBHelper.ISBN, DBHelper.ISBN13, DBHelper.PUBLISHER,DBHelper.PUBLISHERYEAR,DBHelper.ISCHECKEDOUT, DBHelper.CHECKOUTYEAR,DBHelper.CHECKOUTMONTH,
-                DBHelper.CHECKOUTDAY,DBHelper.DUEYEAR,DBHelper.DUEMONTH,DBHelper.DUEYEAR};
+        String[] columns = {DBHelper.UID, DBHelper.NAME, DBHelper.CITY, DBHelper.STATE, DBHelper.MONTH,DBHelper.DAY,DBHelper.YEAR,DBHelper.FOREIGNID};
 
         Cursor cursor = dbs.query(DBHelper.TABLE_NAME, columns, DBHelper.NAME + " = '" + name + "'", null, null, null, null);
         StringBuffer buffer = new StringBuffer();
         while (cursor.moveToNext()) {
-            int index1=cursor.getColumnIndex(DBHelper.UID);
+            int index1=cursor.getColumnIndex(DBHelper.FOREIGNID);
             UID=cursor.getInt(index1);
         }
 
@@ -198,12 +200,13 @@ public class DBAdapter {
         private static final String DUEYEAR="DueYear";
         private static final String DUEMONTH="DueMonth";
         private static final String DUEDAY="DueDay";
-        private static final String CREATE_MEMBER_TABLE = "Create table " + TABLE_NAME + " (" + UID + " INTEGER PRIMARY KEY, " + NAME
-                + " VARCHAR(255), " + CITY + " VARCHAR (255), "+STATE + " VARCHAR (255), "+ MONTH + " INTEGER, " + DAY + " INTEGER, " + YEAR + " LONG);";
+        private static final String FOREIGNID="ForeignID";
+        private static final String CREATE_MEMBER_TABLE = "Create table " + TABLE_NAME + " (" + UID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME
+                + " VARCHAR(255), " + CITY + " VARCHAR (255), "+STATE + " VARCHAR (255), "+ MONTH + " INTEGER, " + DAY + " INTEGER, " + YEAR + " LONG, " + FOREIGNID + " INTEGER);";
 
-        private static final String CREATE_BOOK_TABLE = "Create table "+ TABLE_NAME_2+" ("+ UID+" Integer PRIMARY KEY, " + TITLE + " VARCHAR (255), "+ ISBN + " VARCHAR (255), "+ ISBN13 + " VARCHAR (255), "+
+        private static final String CREATE_BOOK_TABLE = "Create table "+ TABLE_NAME_2+" ("+ UID+" INTEGER PRIMARY KEY AUTOINCREMENT, " + TITLE + " VARCHAR (255), "+ ISBN + " VARCHAR (255), "+ ISBN13 + " VARCHAR (255), "+
                 PUBLISHER + " VARCHAR (255), "+ PUBLISHERYEAR + " INTEGER, " + ISCHECKEDOUT+ " INTEGER, " + CHECKEDOUTBY + " INTEGER, " + CHECKOUTYEAR + " INTEGER, " +   CHECKOUTMONTH + " INTEGER, " + CHECKOUTDAY + " INTEGER, " +
-                DUEYEAR + " INTEGER, " + DUEMONTH + " INTEGER, " + DUEDAY + " INTEGER);";
+                DUEYEAR + " INTEGER, " + DUEMONTH + " INTEGER, " + DUEDAY + " INTEGER, "+ FOREIGNID + " INTEGER);";
 
         public DBHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
