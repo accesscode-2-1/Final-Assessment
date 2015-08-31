@@ -30,8 +30,10 @@ public class LibraryActivity extends Activity {
         inputParameter = (EditText) findViewById(R.id.input_parameter);
         textDisplay=(TextView) findViewById(R.id.text_display);
 
-        loadBookJSONFromAsset("books.json");
-        loadMemberJSONFromAsset("members.json");
+
+
+        loadBookJSONFromAsset(R.raw.books);
+        loadMemberJSONFromAsset(R.raw.members);
 
 
     }
@@ -79,10 +81,10 @@ public class LibraryActivity extends Activity {
         //      earliest due first.
     }
 
-    public void loadMemberJSONFromAsset(String fileName) {
+    public void loadMemberJSONFromAsset(int fileName) {
         String json = null;
         try {
-            InputStream is = getAssets().open(fileName);
+            InputStream is = getResources().openRawResource(fileName);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -94,10 +96,10 @@ public class LibraryActivity extends Activity {
         }
         sendMemberInfo(json);
     }
-    public void loadBookJSONFromAsset(String fileName) {
+    public void loadBookJSONFromAsset(int fileName) {
         String json = null;
         try {
-            InputStream is = getAssets().open(fileName);
+            InputStream is = getResources().openRawResource(fileName);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
