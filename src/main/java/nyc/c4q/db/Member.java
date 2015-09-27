@@ -10,7 +10,7 @@ public class Member {
 
     public static final String NAME = "NAME";
     @Expose
-    @DatabaseField(id = true)
+    @DatabaseField
     public Integer id;
     @Expose
     @DatabaseField(columnName = NAME)

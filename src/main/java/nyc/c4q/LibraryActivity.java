@@ -131,6 +131,7 @@ public class LibraryActivity extends Activity {
             members = dbHelper.loadSpecificMember(name);
         } catch (SQLException e) {
             e.printStackTrace();
+            Toast.makeText(context,"SQLException error",Toast.LENGTH_SHORT).show();
         }
 
         if(members != null && members.size() > 0){

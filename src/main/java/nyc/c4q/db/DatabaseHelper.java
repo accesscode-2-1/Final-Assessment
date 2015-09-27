@@ -27,6 +27,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private final static String MYDB = "MyDb";
 
     private static DatabaseHelper mHelper;
+    private Dao<Member, String> memberDao;
+    private Dao<Book, Integer> bookDao;
 
     public DatabaseHelper(Context context) {
         super(context, MYDB, null, VERSION);
@@ -64,16 +66,30 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
+    public Dao<Member,String> getMemberDao() throws SQLException{
+        if(memberDao == null){
+            memberDao = getDao(Member.class);
+        }
+        return memberDao;
+    }
+
+    public Dao<Book, Integer> getBookDao() throws SQLException{
+        if(bookDao == null){
+            bookDao = getDao(Book.class);
+        }
+        return bookDao;
+    }
+
     public List<Book> loadSpecificBook(int id) throws SQLException {
         Log.d("DB SEARCH", "ISBN: "+ id);
-        Dao<Book, Integer> memberDao = DaoManager.createDao(connectionSource, Book.class);
-        QueryBuilder<Book, Integer> queryBuilder = memberDao.queryBuilder();
+        bookDao = getBookDao();
+        QueryBuilder<Book, Integer> queryBuilder = bookDao.queryBuilder();
         queryBuilder.where().eq(Book.ID, id);
         PreparedQuery<Book> preparedQuery = queryBuilder.prepare();
 
         Log.d("Book Search", "Complete");
 
-        return memberDao.query(preparedQuery);
+        return bookDao.query(preparedQuery);
     }
 
     public void insertRow(Book book) throws SQLException {
@@ -87,7 +103,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public List<Member> loadSpecificMember(String name) throws SQLException {
         Log.d("DB SEARCH", "Member: "+ name);
 
-        Dao<Member, String> memberDao = DaoManager.createDao(connectionSource, Member.class);
+        memberDao = getMemberDao();
         QueryBuilder<Member, String> queryBuilder = memberDao.queryBuilder();
         queryBuilder.where().eq(Member.NAME, name);
         PreparedQuery<Member> preparedQuery = queryBuilder.prepare();

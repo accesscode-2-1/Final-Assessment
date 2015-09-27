@@ -20,11 +20,11 @@ import java.util.zip.CheckedOutputStream;
 public class RosterListAdapter extends BaseAdapter{
 
     private ArrayList<Person> roster;
-    private boolean displayLastNameFirst;
-    private boolean doDisplayColor;
+    private BooleanObj displayLastNameFirst;
+    private BooleanObj doDisplayColor;
     final Map<String, Integer> HOUSE_COLORS;
 
-    public RosterListAdapter(ArrayList<Person> roster, boolean doDisplayColor, boolean displayLastNameFirst){
+    public RosterListAdapter(ArrayList<Person> roster, BooleanObj doDisplayColor, BooleanObj displayLastNameFirst){
         this.roster = roster;
         this.doDisplayColor = doDisplayColor;
         this.displayLastNameFirst = displayLastNameFirst;
@@ -50,25 +50,38 @@ public class RosterListAdapter extends BaseAdapter{
         return 0;
     }
 
+    static class ViewHolder {
+        TextView personNameTV, houseTV;
+    }
+
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.listitem_member, viewGroup, false);
-        TextView houseTV = (TextView) itemView.findViewById(R.id.text_house);
-        TextView personNameTV = (TextView) itemView.findViewById(R.id.text_name);
+        ViewHolder v;
+        if(view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.listitem_member, viewGroup, false);
+            v = new ViewHolder();
+            v.houseTV = (TextView) view.findViewById(R.id.text_house);
+            v.personNameTV = (TextView) view.findViewById(R.id.text_name);
+            view.setTag(v);
+        }else{
+            v = (ViewHolder) view.getTag();
+        }
 
         Person person = roster.get(i);
 
-        if(displayLastNameFirst)
-            personNameTV.setText(person.lastName + ", " + person.firstName);
+        if(displayLastNameFirst.getBooleanValue())
+            v.personNameTV.setText(person.lastName + ", " + person.firstName);
         else
-            personNameTV.setText(person.firstName + " " + person.lastName);
-        houseTV.setText(person.house + "");
+            v.personNameTV.setText(person.firstName + " " + person.lastName);
+        v.houseTV.setText(person.house + "");
 
 
-        if(doDisplayColor)
-            itemView.setBackgroundResource(HOUSE_COLORS.get(person.house + ""));
+        if(doDisplayColor.getBooleanValue())
+            view.setBackgroundResource(HOUSE_COLORS.get(person.house + ""));
+        else
+            view.setBackgroundResource(0);
 
-        return itemView;
+        return view;
     }
 
 

@@ -17,10 +17,11 @@ public class ListActivity extends Activity {
     public ListView list;
     private ArrayList<Person> people;
     private Button lastFirstButton, showColorButton;
-    private boolean doShowColor, displayLastFirst;
+    private BooleanObj doShowColor, displayLastFirst;
     private static final String S_PREF = "s pref";
     private static final String SHOW_COLOR = "show color";
     private static final String DISPLAY_LAST_FIRST = "last name first";
+    private RosterListAdapter rosterListAdapter;
 
     public static final Person[] PEOPLE = {
         new Person("Hannah",    "Abbott",          House.Hufflepuff),
@@ -58,8 +59,8 @@ public class ListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         SharedPreferences sharedPreferences = getSharedPreferences(S_PREF,MODE_PRIVATE);
-        doShowColor = sharedPreferences.getBoolean(SHOW_COLOR, true);
-        displayLastFirst = sharedPreferences.getBoolean(DISPLAY_LAST_FIRST, true);
+        doShowColor = new BooleanObj(sharedPreferences.getBoolean(SHOW_COLOR, true));
+        displayLastFirst = new BooleanObj(sharedPreferences.getBoolean(DISPLAY_LAST_FIRST, true));
 
         list = (ListView) findViewById(R.id.list);
         lastFirstButton = (Button) findViewById(R.id.button_name);
@@ -69,10 +70,11 @@ public class ListActivity extends Activity {
         for(int i = 0; i < PEOPLE.length; i++){
             people.add(PEOPLE[i]);
         }
+        rosterListAdapter = new RosterListAdapter(people, doShowColor, displayLastFirst);
+        list.setAdapter(rosterListAdapter);
+        sortData();
 
-        setAdapter();
-
-        if(!displayLastFirst){
+        if(!displayLastFirst.getBooleanValue()){
             lastFirstButton.setText("First Last");
         }
         lastFirstButton.setOnClickListener(new View.OnClickListener() {
@@ -81,16 +83,16 @@ public class ListActivity extends Activity {
                 if (lastFirstButton.getText().toString().equals("Last, First")) {
                     lastFirstButton.setText("First Last");
                     setDisplayLastFirst(false);
-                    setAdapter();
+                    sortData();
                 } else {
                     lastFirstButton.setText("Last, First");
                     setDisplayLastFirst(true);
-                    setAdapter();
+                    sortData();
                 }
             }
         });
 
-        if(!doShowColor){
+        if(!doShowColor.getBooleanValue()){
             showColorButton.setText("Hide Color");
         }
         showColorButton.setOnClickListener(new View.OnClickListener() {
@@ -99,18 +101,18 @@ public class ListActivity extends Activity {
                 if (showColorButton.getText().toString().equals("Show Color")) {
                     showColorButton.setText("Hide Color");
                     setShowColor(false);
-                    setAdapter();
+                    rosterListAdapter.notifyDataSetChanged();
                 } else {
                     showColorButton.setText("Show Color");
                     setShowColor(true);
-                    setAdapter();
+                    rosterListAdapter.notifyDataSetChanged();
                 }
             }
         });
     }
 
     private void setShowColor(boolean bool){
-        doShowColor = bool;
+        doShowColor.setBooleanValue(bool);
         SharedPreferences sharedPreferences = getSharedPreferences(S_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(SHOW_COLOR, bool);
@@ -118,21 +120,21 @@ public class ListActivity extends Activity {
     }
 
     private void setDisplayLastFirst(boolean bool){
-        displayLastFirst = bool;
+        displayLastFirst.setBooleanValue(bool);
         SharedPreferences sharedPreferences = getSharedPreferences(S_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(DISPLAY_LAST_FIRST, bool);
         editor.commit();
     }
 
-    private void setAdapter() {
-        if(displayLastFirst)
+    private void sortData() {
+        if(displayLastFirst.getBooleanValue())
             sortByLastName();
         else
             sortByFirstName();
 
-        RosterListAdapter rosterListAdapter = new RosterListAdapter(people, doShowColor, displayLastFirst);
-        list.setAdapter(rosterListAdapter);
+
+        rosterListAdapter.notifyDataSetChanged();
     }
 
 

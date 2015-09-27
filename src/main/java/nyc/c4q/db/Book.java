@@ -13,7 +13,7 @@ public class Book {
     public static final String ISBN = "ISBN";
     public static final String ISBN13 = "ISBN13";
     @Expose
-    @DatabaseField(columnName = ID, id = true)
+    @DatabaseField(columnName = ID)
     public Integer id;
     @Expose
     @DatabaseField(columnName = TITLE)
