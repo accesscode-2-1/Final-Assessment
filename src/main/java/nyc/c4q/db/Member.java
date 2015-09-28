@@ -9,6 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Member {
 
     public static final String NAME = "NAME";
+
     @Expose
     @DatabaseField
     public Integer id;
@@ -25,13 +26,13 @@ public class Member {
     public Integer dobDay;
     @SerializedName("dob_year")
     @Expose
-	@DatabaseField
+    @DatabaseField
     public Integer dobYear;
     @Expose
-	@DatabaseField
+    @DatabaseField
     public String city;
     @Expose
-	@DatabaseField
+    @DatabaseField
     public String state;
 
     public Member(){
@@ -166,6 +167,9 @@ public class Member {
 
     @Override
     public String toString() {
-        return "id: " + id + "\nname: " + name + "\ndob: " + dobDay+"/"+dobMonth+"/"+dobYear + "\nlocation: " + city + ", " + state;
+        return "id: " + id +
+                "\nname: " + name +
+                "\ndob: " + dobDay+"/"+dobMonth+"/"+dobYear +
+                "\nlocation: " + city + ", " + state;
     }
 }

@@ -332,4 +332,14 @@ public class Book {
         this.duedateday = duedateday;
     }
 
+    @Override
+    public String toString() {
+        return "id: " + id +
+                "\ntitle: " + title +
+                "\nauthor: " + author +
+                "\nisbn: " + isbn +
+                "\nisbn13: " + isbn13 +
+                "\npublisher: " + publisher +
+                "\npublication year: " + publishyear;
+    }
 }

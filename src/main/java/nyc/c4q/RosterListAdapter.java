@@ -20,11 +20,11 @@ import java.util.zip.CheckedOutputStream;
 public class RosterListAdapter extends BaseAdapter{
 
     private ArrayList<Person> roster;
-    private BooleanObj displayLastNameFirst;
-    private BooleanObj doDisplayColor;
+    private boolean displayLastNameFirst;
+    private boolean doDisplayColor;
     final Map<String, Integer> HOUSE_COLORS;
 
-    public RosterListAdapter(ArrayList<Person> roster, BooleanObj doDisplayColor, BooleanObj displayLastNameFirst){
+    public RosterListAdapter(ArrayList<Person> roster, boolean doDisplayColor, boolean displayLastNameFirst){
         this.roster = roster;
         this.doDisplayColor = doDisplayColor;
         this.displayLastNameFirst = displayLastNameFirst;
@@ -69,14 +69,14 @@ public class RosterListAdapter extends BaseAdapter{
 
         Person person = roster.get(i);
 
-        if(displayLastNameFirst.getBooleanValue())
+        if(displayLastNameFirst)
             v.personNameTV.setText(person.lastName + ", " + person.firstName);
         else
             v.personNameTV.setText(person.firstName + " " + person.lastName);
         v.houseTV.setText(person.house + "");
 
 
-        if(doDisplayColor.getBooleanValue())
+        if(doDisplayColor)
             view.setBackgroundResource(HOUSE_COLORS.get(person.house + ""));
         else
             view.setBackgroundResource(0);
@@ -84,5 +84,16 @@ public class RosterListAdapter extends BaseAdapter{
         return view;
     }
 
+    public void setDisplayLastNameFirst(boolean lastNameFirst){
+        displayLastNameFirst = lastNameFirst;
+
+        notifyDataSetChanged();
+    }
+
+    public void setDisplayColor(boolean showColor){
+        doDisplayColor = showColor;
+
+        notifyDataSetChanged();
+    }
 
 }

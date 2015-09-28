@@ -21,7 +21,6 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import nyc.c4q.db.Book;
 import nyc.c4q.db.DatabaseHelper;
@@ -34,8 +33,8 @@ public class LibraryActivity extends Activity {
     DatabaseHelper dbHelper;
     TextView displayInfo;
     Context context;
-    List<Member> members = null;
-    List<Book> books = null;
+    Member member = null;
+    Book book = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +72,7 @@ public class LibraryActivity extends Activity {
             //MEMBERS
             Reader memReader = null;
             InputStream memStream = context.getResources()
-                    .openRawResource(R.raw.books);
+                    .openRawResource(R.raw.members);
             memReader = new BufferedReader(new InputStreamReader(memStream), 8092);
 
             // parse json
@@ -122,21 +121,22 @@ public class LibraryActivity extends Activity {
     }
 
     public void button_getMember_onClick(View view) {
+        displayInfo.setText("");
         final String name = inputParameter.getText().toString();
 
         // TODO Display member information for the member with the given name.
 
 
         try {
-            members = dbHelper.loadSpecificMember(name);
+            member = dbHelper.loadSpecificMember(name);
         } catch (SQLException e) {
             e.printStackTrace();
             Toast.makeText(context,"SQLException error",Toast.LENGTH_SHORT).show();
         }
 
-        if(members != null && members.size() > 0){
-            Log.d("MEMBER",members.get(0).getId() + "");
-            displayInfo.setText(members.get(0).toString());
+        if(member != null){
+            Log.d("MEMBER", member.getId() + "");
+            displayInfo.setText(member.toString());
         }else{
             Toast.makeText(context,"Member not found",Toast.LENGTH_SHORT).show();
         }
@@ -145,27 +145,22 @@ public class LibraryActivity extends Activity {
     }
 
     public void button_getBook_onClick(View view) {
+        displayInfo.setText("");
         String isbn = inputParameter.getText().toString();
-        Integer isbnNumber = 0;
-        try {
-            isbnNumber = Integer.parseInt(isbn);
-        }catch(NumberFormatException e){
-            e.printStackTrace();
-        }
 
         // TODO Display book information for the book with the given ISBN.
 
 
 
         try {
-            books = dbHelper.loadSpecificBook(isbnNumber);
+            book = dbHelper.loadSpecificBook(isbn);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        if(books != null && books.size() > 0){
-            Log.d("BOOK",books.get(0).getId() + "");
-            displayInfo.setText(books.get(0).toString());
+        if(book != null){
+            Log.d("BOOK", book.getId() + "");
+            displayInfo.setText(book.toString());
         }else{
             Toast.makeText(context,"Book not found",Toast.LENGTH_SHORT).show();
         }
