@@ -1,174 +1,372 @@
 package nyc.c4q;
 
-import com.google.gson.annotations.SerializedName;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Created by alvin2 on 8/30/15.
+ * Created by Hoshiko on 8/30/15.
  */
+
+@DatabaseTable(tableName = "books")
 public class Book {
+    @DatabaseField
+    private Integer id;
 
-    @SerializedName("id")
-    private int bookID;
+    @DatabaseField
+    private String title;
 
-    @SerializedName("title")
-    private String bookTitle;
+    @DatabaseField
+    private String author;
 
-    @SerializedName("author")
-    private String bookAuthor;
+    @DatabaseField
+    private String isbn;
 
-    @SerializedName("isbn")
-    private String bookISBN;
+    @DatabaseField
+    private String isbn13;
 
-    @SerializedName("isbn13")
-    private String bookISBN13;
+    @DatabaseField
+    private String publisher;
 
-    @SerializedName("publisher")
-    private String bookPublisher;
+    @DatabaseField
+    private Integer publishyear;
 
-    @SerializedName("publishyear")
-    private int bookPublishYear;
+    @DatabaseField
+    private Boolean checkedout;
 
-    @SerializedName("checkedout")
-    private int bookCheckedOut;
+    @DatabaseField
+    private Integer checkedoutby;
 
-    @SerializedName("checkedoutby")
-    private int bookCheckedOutBy;
+    @DatabaseField
+    private Integer checkoutdateyear;
 
-    @SerializedName("checkoutdateyear")
-    private int bookCheckedOutYear;
+    @DatabaseField
+    private Integer checkoutdatemonth;
 
-    @SerializedName("checkoutdatemonth")
-    private int bookCheckedOutMonth;
+    @DatabaseField
+    private Integer checkoutdateday;
 
-    @SerializedName("checkoutdateday")
-    private int bookCheckedOutDay;
+    @DatabaseField
+    private Integer duedateyear;
 
-    @SerializedName("duedatemonth")
-    private int bookDueMonth;
+    @DatabaseField
+    private Integer duedatemonth;
 
-    @SerializedName("duedateday")
-    private int bookDueDay;
+    @DatabaseField
+    private Integer duedateday;
 
-    @SerializedName("duedateyear")
-    private int bookDueYear;
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public String getBookTitle() {
-        return bookTitle;
+
+    public Book(Integer id, String title, String author, String isbn, String isbn13, String publisher, Integer publishyear, Boolean checkedout, Integer checkedoutby, Integer checkoutdateyear, Integer checkoutdatemonth, Integer checkoutdateday, Integer duedateyear, Integer duedatemonth, Integer duedateday) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.isbn13 = isbn13;
+        this.publisher = publisher;
+        this.publishyear = publishyear;
+        this.checkedout = checkedout;
+        this.checkedoutby = checkedoutby;
+        this.checkoutdateyear = checkoutdateyear;
+        this.checkoutdatemonth = checkoutdatemonth;
+        this.checkoutdateday = checkoutdateday;
+        this.duedateyear = duedateyear;
+        this.duedatemonth = duedatemonth;
+        this.duedateday = duedateday;
     }
 
-    public void setBookTitle(String bookTitle) {
-        this.bookTitle = bookTitle;
+    public Book(Integer id, String title, String author, String isbn, String isbn13, String publisher, Integer publishyear) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.isbn13 = isbn13;
+        this.publisher = publisher;
+        this.publishyear = publishyear;
+
     }
 
-    public int getBookID() {
-        return bookID;
+    Book (){}
+    /**
+     *
+     * @return
+     *     The id
+     */
+    public Integer getId() {
+        return id;
     }
 
-    public void setBookID(int bookID) {
-        this.bookID = bookID;
+    /**
+     *
+     * @param id
+     *     The id
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getBookAuthor() {
-        return bookAuthor;
+    /**
+     *
+     * @return
+     *     The title
+     */
+    public String getTitle() {
+        return title;
     }
 
-    public void setBookAuthor(String bookAuthor) {
-        this.bookAuthor = bookAuthor;
+    /**
+     *
+     * @param title
+     *     The title
+     */
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getBookISBN() {
-        return bookISBN;
+    /**
+     *
+     * @return
+     *     The author
+     */
+    public String getAuthor() {
+        return author;
     }
 
-    public void setBookISBN(String bookISBN) {
-        this.bookISBN = bookISBN;
+    /**
+     *
+     * @param author
+     *     The author
+     */
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getBookISBN13() {
-        return bookISBN13;
+    /**
+     *
+     * @return
+     *     The isbn
+     */
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setBookISBN13(String bookISBN13) {
-        this.bookISBN13 = bookISBN13;
+    /**
+     *
+     * @param isbn
+     *     The isbn
+     */
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public String getBookPublisher() {
-        return bookPublisher;
+    /**
+     *
+     * @return
+     *     The isbn13
+     */
+    public String getIsbn13() {
+        return isbn13;
     }
 
-    public void setBookPublisher(String bookPublisher) {
-        this.bookPublisher = bookPublisher;
+    /**
+     *
+     * @param isbn13
+     *     The isbn13
+     */
+    public void setIsbn13(String isbn13) {
+        this.isbn13 = isbn13;
     }
 
-    public int getBookPublishYear() {
-        return bookPublishYear;
+    /**
+     *
+     * @return
+     *     The publisher
+     */
+    public String getPublisher() {
+        return publisher;
     }
 
-    public void setBookPublishYear(int bookPublishYear) {
-        this.bookPublishYear = bookPublishYear;
+    /**
+     *
+     * @param publisher
+     *     The publisher
+     */
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
-    public int getBookCheckedOut() {
-        return bookCheckedOut;
+    /**
+     *
+     * @return
+     *     The publishyear
+     */
+    public Integer getPublishyear() {
+        return publishyear;
     }
 
-    public void setBookCheckedOut(int bookCheckedOut) {
-        this.bookCheckedOut = bookCheckedOut;
+    /**
+     *
+     * @param publishyear
+     *     The publishyear
+     */
+    public void setPublishyear(Integer publishyear) {
+        this.publishyear = publishyear;
     }
 
-    public int getBookCheckedOutBy() {
-        return bookCheckedOutBy;
+    /**
+     *
+     * @return
+     *     The checkedout
+     */
+    public Boolean getCheckedout() {
+        return checkedout;
     }
 
-    public void setBookCheckedOutBy(int bookCheckedOutBy) {
-        this.bookCheckedOutBy = bookCheckedOutBy;
+    /**
+     *
+     * @param checkedout
+     *     The checkedout
+     */
+    public void setCheckedout(Boolean checkedout) {
+        this.checkedout = checkedout;
     }
 
-    public int getBookCheckedOutYear() {
-        return bookCheckedOutYear;
+    /**
+     *
+     * @return
+     *     The checkedoutby
+     */
+    public Integer getCheckedoutby() {
+        return checkedoutby;
     }
 
-    public void setBookCheckedOutYear(int bookCheckedOutYear) {
-        this.bookCheckedOutYear = bookCheckedOutYear;
+    /**
+     *
+     * @param checkedoutby
+     *     The checkedoutby
+     */
+    public void setCheckedoutby(Integer checkedoutby) {
+        this.checkedoutby = checkedoutby;
     }
 
-    public int getBookCheckedOutMonth() {
-        return bookCheckedOutMonth;
+    /**
+     *
+     * @return
+     *     The checkoutdateyear
+     */
+    public Integer getCheckoutdateyear() {
+        return checkoutdateyear;
     }
 
-    public void setBookCheckedOutMonth(int bookCheckedOutMonth) {
-        this.bookCheckedOutMonth = bookCheckedOutMonth;
+    /**
+     *
+     * @param checkoutdateyear
+     *     The checkoutdateyear
+     */
+    public void setCheckoutdateyear(Integer checkoutdateyear) {
+        this.checkoutdateyear = checkoutdateyear;
     }
 
-    public int getBookCheckedOutDay() {
-        return bookCheckedOutDay;
+    /**
+     *
+     * @return
+     *     The checkoutdatemonth
+     */
+    public Integer getCheckoutdatemonth() {
+        return checkoutdatemonth;
     }
 
-    public void setBookCheckedOutDay(int bookCheckedOutDay) {
-        this.bookCheckedOutDay = bookCheckedOutDay;
+    /**
+     *
+     * @param checkoutdatemonth
+     *     The checkoutdatemonth
+     */
+    public void setCheckoutdatemonth(Integer checkoutdatemonth) {
+        this.checkoutdatemonth = checkoutdatemonth;
     }
 
-    public int getBookDueMonth() {
-        return bookDueMonth;
+    /**
+     *
+     * @return
+     *     The checkoutdateday
+     */
+    public Integer getCheckoutdateday() {
+        return checkoutdateday;
     }
 
-    public void setBookDueMonth(int bookDueMonth) {
-        this.bookDueMonth = bookDueMonth;
+    /**
+     *
+     * @param checkoutdateday
+     *     The checkoutdateday
+     */
+    public void setCheckoutdateday(Integer checkoutdateday) {
+        this.checkoutdateday = checkoutdateday;
     }
 
-    public int getBookDueDay() {
-        return bookDueDay;
+    /**
+     *
+     * @return
+     *     The duedateyear
+     */
+    public Integer getDuedateyear() {
+        return duedateyear;
     }
 
-    public void setBookDueDay(int bookDueDay) {
-        this.bookDueDay = bookDueDay;
+    /**
+     *
+     * @param duedateyear
+     *     The duedateyear
+     */
+    public void setDuedateyear(Integer duedateyear) {
+        this.duedateyear = duedateyear;
     }
 
-    public int getBookDueYear() {
-        return bookDueYear;
+    /**
+     *
+     * @return
+     *     The duedatemonth
+     */
+    public Integer getDuedatemonth() {
+        return duedatemonth;
     }
 
-    public void setBookDueYear(int bookDueYear) {
-        this.bookDueYear = bookDueYear;
+    /**
+     *
+     * @param duedatemonth
+     *     The duedatemonth
+     */
+    public void setDuedatemonth(Integer duedatemonth) {
+        this.duedatemonth = duedatemonth;
     }
+
+    /**
+     *
+     * @return
+     *     The duedateday
+     */
+    public Integer getDuedateday() {
+        return duedateday;
+    }
+
+    /**
+     *
+     * @param duedateday
+     *     The duedateday
+     */
+    public void setDuedateday(Integer duedateday) {
+        this.duedateday = duedateday;
+    }
+
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
+
 }

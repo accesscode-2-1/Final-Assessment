@@ -1,86 +1,189 @@
 package nyc.c4q;
 
 import com.google.gson.annotations.SerializedName;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Created by alvin2 on 8/30/15.
+ * Created by Hoshiko on 8/30/15.
  */
+
+// CREATED USING JSONSCHEMA2POJO.ORG -- COPY & PASTE FROM JSON TO CONVERT GSON; SELECT "NONE"
+
+@DatabaseTable(tableName = "members")
 public class Member {
+    @DatabaseField
+    private Integer id;
 
-    @SerializedName("id")
-    private int memberID;
+    @DatabaseField
+    private String name;
 
-    @SerializedName("name")
-    private String memberName;
-
+    // "@SeralizedName" is used when the java object isn't named the same as in the JSON
     @SerializedName("dob_month")
-    private int memberDOBmonth;
+    @DatabaseField
+    private Integer dobMonth;
 
     @SerializedName("dob_day")
-    private int memberDOBday;
+    @DatabaseField
+    private Integer dobDay;
 
     @SerializedName("dob_year")
-    private int memberDOByear;
+    @DatabaseField
+    private Integer dobYear;
 
-    @SerializedName("city")
-    private String memberCity;
+    @DatabaseField
+    private String city;
 
-    @SerializedName("state")
-    private String memberState;
+    @DatabaseField
+    private String state;
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public int getMemberID() {
-        return memberID;
+    Member (){}
+
+    public Member(int id, String name, int dobMonth, int dobDay, int dobYear, String city, String state) {
+        this.id = id;
+        this.name = name;
+        this.dobMonth = dobMonth;
+        this.dobDay = dobDay;
+        this.dobYear = dobYear;
+        this.city = city;
+        this.state = state;
     }
 
-    public void setMemberID(int memberID) {
-        this.memberID = memberID;
+    /**
+     *
+     * @return
+     *     The id
+     */
+    public Integer getId() {
+        return id;
     }
 
-    public String getMemberName() {
-        return memberName;
+    /**
+     *
+     * @param id
+     *     The id
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
+    /**
+     *
+     * @return
+     *     The name
+     */
+    public String getName() {
+        return name;
     }
 
-    public int getMemberDOBmonth() {
-        return memberDOBmonth;
+    /**
+     *
+     * @param name
+     *     The name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setMemberDOBmonth(int memberDOBmonth) {
-        this.memberDOBmonth = memberDOBmonth;
+    /**
+     *
+     * @return
+     *     The dobMonth
+     */
+    public Integer getDobMonth() {
+        return dobMonth;
     }
 
-    public int getMemberDOBday() {
-        return memberDOBday;
+    /**
+     *
+     * @param dobMonth
+     *     The dob_month
+     */
+    public void setDobMonth(Integer dobMonth) {
+        this.dobMonth = dobMonth;
     }
 
-    public void setMemberDOBday(int memberDOBday) {
-        this.memberDOBday = memberDOBday;
+    /**
+     *
+     * @return
+     *     The dobDay
+     */
+    public Integer getDobDay() {
+        return dobDay;
     }
 
-    public int getMemberDOByear() {
-        return memberDOByear;
+    /**
+     *
+     * @param dobDay
+     *     The dob_day
+     */
+    public void setDobDay(Integer dobDay) {
+        this.dobDay = dobDay;
     }
 
-    public void setMemberDOByear(int memberDOByear) {
-        this.memberDOByear = memberDOByear;
+    /**
+     *
+     * @return
+     *     The dobYear
+     */
+    public Integer getDobYear() {
+        return dobYear;
     }
 
-    public String getMemberCity() {
-        return memberCity;
+    /**
+     *
+     * @param dobYear
+     *     The dob_year
+     */
+    public void setDobYear(Integer dobYear) {
+        this.dobYear = dobYear;
     }
 
-    public void setMemberCity(String memberCity) {
-        this.memberCity = memberCity;
+    /**
+     *
+     * @return
+     *     The city
+     */
+    public String getCity() {
+        return city;
     }
 
-    public String getMemberState() {
-        return memberState;
+    /**
+     *
+     * @param city
+     *     The city
+     */
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public void setMemberState(String memberState) {
-        this.memberState = memberState;
+    /**
+     *
+     * @return
+     *     The state
+     */
+    public String getState() {
+        return state;
+    }
+
+    /**
+     *
+     * @param state
+     *     The state
+     */
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
     }
 }

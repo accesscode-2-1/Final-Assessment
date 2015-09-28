@@ -26,6 +26,8 @@ public class ListActivity extends Activity {
     public ListView list;
     ListAdapter listAdapter;
     Button buttonName, buttonColor;
+    boolean isColorShown;
+    SharedPreferences preferences;
 
     public static final Person[] PEOPLE = {
             new Person("Hannah", "Abbott", House.Hufflepuff),
@@ -63,9 +65,13 @@ public class ListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+            preferences = this.getSharedPreferences(SHARED_FILE, Context.MODE_PRIVATE);
+            isColorShown = preferences.getBoolean("color", false);
+
         list = (ListView) findViewById(R.id.list);
-        listAdapter = new ListAdapter(getApplicationContext(), R.layout.listitem_member, PEOPLE);
+        listAdapter = new ListAdapter(getApplicationContext(), R.layout.listitem_member, PEOPLE, isColorShown);
         list.setAdapter(listAdapter);
+
 
         buttonName = (Button) findViewById(R.id.button_name);
         buttonName.setOnClickListener(new View.OnClickListener() {
@@ -73,10 +79,12 @@ public class ListActivity extends Activity {
             public void onClick(View view) {
                 if (buttonName.getText().toString().equals("Last, First")) {
                     buttonName.setText("First Last");
+                    listAdapter.setFirstnameFirst(true);
                     listAdapter.notifyDataSetChanged();
                     list.setAdapter(listAdapter);
                 } else if (buttonName.getText().toString().equals("First Last")) {
                     buttonName.setText("Last, First");
+                    listAdapter.setFirstnameFirst(false);
                     listAdapter.notifyDataSetChanged();
                     list.setAdapter(listAdapter);
                 }
@@ -90,19 +98,23 @@ public class ListActivity extends Activity {
             public void onClick(View view) {
                 if (buttonColor.getText().toString().equals("Show Color")) {
                     buttonColor.setText("Hide Color");
-                    list.setAdapter(listAdapter);
+                    listAdapter.setColorShown(false);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("color", false);
+                    // .commit() runs in the foreground so when onDestroy() is called on quitting the app, the info will be safely written to SharedPrefs before the app is destroyed
+                    editor.commit();
+                    // refreshes the view of the listview
+                    listAdapter.notifyDataSetChanged();
                 } else if (buttonColor.getText().toString().equals("Hide Color")) {
                     buttonColor.setText("Show Color");
-                    list.setAdapter(listAdapter);
+                    listAdapter.setColorShown(true);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("color", true);
+                    editor.commit();
+                    listAdapter.notifyDataSetChanged();
                 }
             }
         });
-
-
-//        SharedPreferences preferences = this.getSharedPreferences(SHARED_FILE, Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = preferences.edit();
-//        editor.putInt("image_file", MODE_PRIVATE);
-//        editor.commit();
 
 
     }
@@ -110,17 +122,30 @@ public class ListActivity extends Activity {
     public class ListAdapter extends ArrayAdapter<Person> {
 
         TextView house, name;
+        boolean firstNameFirst;
+        boolean isColorShown;
 
 
-        public ListAdapter(Context context, int resource) {
-            super(context, resource);
-        }
-
-        public ListAdapter(Context context, int resource, Person[] objects) {
+        public ListAdapter(Context context, int resource, Person[] objects, boolean isColorShown) {
             super(context, resource, objects);
+            this.isColorShown = isColorShown;
+
+        }
+
+        public void setColorShown(boolean isColorShown) {
+            this.isColorShown = isColorShown;
         }
 
 
+        public void setFirstnameFirst(boolean enabled) {
+            firstNameFirst = enabled;
+
+            if (enabled) {
+                Arrays.sort(PEOPLE, new FirstNameComparator());
+            } else {
+                Arrays.sort(PEOPLE, new LastNameComparator());
+            }
+        }
 
         @Override
         public View getView(int position, View v, ViewGroup parent) {
@@ -141,15 +166,13 @@ public class ListActivity extends Activity {
 
             if (buttonName.getText().toString().equals("Last, First")) {
                 name.setText(person.getLastName() + ", " + person.getFirstName());
-            } else if (buttonName.getText().toString().equals("First Last")){
+            } else if (buttonName.getText().toString().equals("First Last")) {
                 name.setText(person.getFirstName() + " " + person.getLastName());
-                listAdapter.notifyDataSetChanged();
-                list.setAdapter(listAdapter);
             }
 
-            if (buttonColor.getText().toString().equals("Show Color")) {
+            if (isColorShown) {
                 v.setBackgroundColor(Color.BLACK);
-            } else if (buttonColor.getText().toString().equals("Hide Color")) {
+            } else {
                 if (house.getText().equals("Gryffindor")) {
                     v.setBackgroundResource(R.color.gryffindor_red);
                 } else if (house.getText().equals("Ravenclaw")) {
